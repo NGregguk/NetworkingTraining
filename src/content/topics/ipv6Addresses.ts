@@ -34,12 +34,12 @@ export const ipv6AddressesTopic: StudyTopic = {
       overview:
         'IPv6 was introduced because IPv4 address space became too limited for the long-term growth of internet-connected systems. Instead of making small adjustments to IPv4, networking moved to a much larger address model.',
       whyItMatters:
-        'If you only memorize that IPv6 is "the newer one," you miss the actual reason it exists. IPv6 matters because address planning had to account for a world with far more devices, services, and always-connected endpoints than IPv4 originally expected.',
+        'If you only memorise that IPv6 is "the newer one," you miss the actual reason it exists. IPv6 matters because address planning had to account for a world with far more devices, services, and always-connected endpoints than IPv4 originally expected.',
       howItWorks: [
         'IPv5 did exist as an experimental protocol, but it was never widely adopted.',
         'IPv6 was created to avoid the address exhaustion problems that affected IPv4.',
         'IPv4 uses 32 bits, while IPv6 uses 128 bits.',
-        'That jump creates an extremely large address space, often summarized as about 340 undecillion possible addresses.',
+        'That jump creates an extremely large address space, often summarised as about 340 undecillion possible addresses.',
       ],
       examples: [
         'Example: a world filled with laptops, phones, cameras, smart speakers, cars, and cloud services creates far more addressing demand than the original IPv4 model expected.',
@@ -145,7 +145,7 @@ export const ipv6AddressesTopic: StudyTopic = {
       overview:
         'IPv6 includes standard shortening rules so long addresses do not have to be written in their fullest form every time. These rules do not change the address itself; they only change how it is displayed.',
       whyItMatters:
-        'If you cannot recognize shortened IPv6 forms, the same address may look different in notes, documentation, tools, and configuration screens. Learning the compression rules prevents that confusion.',
+        'If you cannot recognise shortened IPv6 forms, the same address may look different in notes, documentation, tools, and configuration screens. Learning the compression rules prevents that confusion.',
       howItWorks: [
         'Leading zeros inside a block can be omitted.',
         'For example, a block such as 0063 can be written as 63.',
@@ -271,7 +271,7 @@ export const ipv6AddressesTopic: StudyTopic = {
       overview:
         'A practical IPv6 lesson should end with a real machine. Looking at adapter details shows that IPv6 is not a distant theory: it can appear on the same client that also has an IPv4 address.',
       whyItMatters:
-        'Reading live configuration turns abstraction into troubleshooting. You stop thinking of IPv6 as a special case and start recognizing it as one of the actual addresses a client may already have.',
+        'Reading live configuration turns abstraction into troubleshooting. You stop thinking of IPv6 as a special case and start recognising it as one of the actual addresses a client may already have.',
       howItWorks: [
         'On Windows, `ipconfig /all` can display both IPv6 and IPv4 information for the same adapter.',
         'The command can also show multiple adapters, which matters when a device is connected in more than one way.',
@@ -296,7 +296,7 @@ export const ipv6AddressesTopic: StudyTopic = {
         {
           label: 'Revision page',
           href: '/revision',
-          note: 'Use the revision questions once you can recognize IPv6 structure and explain why coexistence is normal.',
+          note: 'Use the revision questions once you can recognise IPv6 structure and explain why coexistence is normal.',
         },
       ],
     },

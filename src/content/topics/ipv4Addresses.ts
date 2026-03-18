@@ -22,7 +22,7 @@ export const ipv4AddressesTopic: StudyTopic = {
     'Explain why IPv4 remains important even though public address space is limited.',
     'Break an IPv4 address into four octets and explain why no octet can exceed 255.',
     'Use a subnet mask at a basic level to distinguish the network portion from the host portion.',
-    'Explain the legacy class A, B, and C model as a study aid for network size and default mask behavior.',
+    'Explain the legacy class A, B, and C model as a study aid for network size and default mask behaviour.',
     'Differentiate private and public IPv4 addressing and explain why NAT is needed.',
     'Read a practical IPv4 example from a client device and connect it to real troubleshooting.',
   ],
@@ -154,7 +154,7 @@ export const ipv4AddressesTopic: StudyTopic = {
       overview:
         'A subnet mask tells a device which bits in the IPv4 address belong to the network portion and which bits identify the host. Without the mask, you cannot reliably say which part is local structure and which part is the individual endpoint.',
       whyItMatters:
-        'This is the turning point between memorizing addresses and actually understanding them. The mask determines whether another destination is on the same subnet or whether traffic must be sent to a router or gateway.',
+        'This is the turning point between memorising addresses and actually understanding them. The mask determines whether another destination is on the same subnet or whether traffic must be sent to a router or gateway.',
       howItWorks: [
         'A subnet mask is also a 32-bit value.',
         'The mask is lined up against the IPv4 address to identify which bits belong to the network portion.',
@@ -349,7 +349,7 @@ export const ipv4AddressesTopic: StudyTopic = {
         'On Windows, `ipconfig /all` shows the IPv4 address, subnet mask, gateway, DNS server, DHCP information, and other adapter details.',
         'The IPv4 address shown on the adapter is usually the local address the device is currently using inside the network.',
         'A browser-based public IP check shows the outward-facing public address seen by internet services.',
-        'If the local adapter address and the public address differ, that is often normal and reflects NAT behavior rather than an error.',
+        'If the local adapter address and the public address differ, that is often normal and reflects NAT behaviour rather than an error.',
       ],
       examples: [
         {
@@ -426,7 +426,7 @@ export const ipv4AddressesTopic: StudyTopic = {
       id: 'internet-assigned-numbers-authority',
       term: 'Internet Assigned Numbers Authority',
       definition:
-        'The organization responsible for coordinating important internet numbering resources, including address-space administration.',
+        'The organisation responsible for coordinating important internet numbering resources, including address-space administration.',
       importance:
         'It helps place IPv4 addressing in the wider structure of global internet coordination.',
       sectionId: 'why-ipv4-still-matters',
@@ -475,7 +475,7 @@ export const ipv4AddressesTopic: StudyTopic = {
       'I can describe an IPv4 address as four 8-bit octets.',
       'I can explain why the subnet mask is needed to interpret network and host portions.',
       'I can identify the traditional first-octet ranges for class A, B, and C.',
-      'I can recognize the major private IPv4 ranges.',
+      'I can recognise the major private IPv4 ranges.',
       'I can explain why a router uses NAT in a home or small business network.',
       'I can explain why a local IPv4 address and a public IP address are often different.',
     ],
@@ -492,7 +492,7 @@ export const ipv4AddressesTopic: StudyTopic = {
       'Assuming the last octet is always the host portion without checking the subnet mask.',
       'Using address classes as if they fully describe all modern subnetting practice.',
       'Confusing a local private address with the public identity seen by internet services.',
-      'Memorizing private ranges without understanding why NAT is needed alongside them.',
+      'Memorising private ranges without understanding why NAT is needed alongside them.',
     ],
   },
   relatedTopicSlugs: ['intro-to-ip-addressing', 'ipv6-addresses', 'why-networking-is-important'],

@@ -157,7 +157,7 @@ export const introToIpAddressingTopic: StudyTopic = {
         {
           label: 'Finding your actual configured addresses',
           href: '#finding-and-reading-your-ip',
-          note: 'The next section explains how to see both local configuration and public-facing behavior.',
+          note: 'The next section explains how to see both local configuration and public-facing behaviour.',
         },
       ],
     },
@@ -246,9 +246,9 @@ export const introToIpAddressingTopic: StudyTopic = {
         '"`ipconfig /all` is only for network specialists." It is one of the most basic and useful support commands.',
       ],
       recap: [
-        'Check the local adapter first, then compare it with public IP behavior if needed.',
+        'Check the local adapter first, then compare it with public IP behaviour if needed.',
         'A command-line check often reveals more useful detail than a visual network icon.',
-        'The point is not just to memorize commands, but to learn what each field means.',
+        'The point is not just to memorise commands, but to learn what each field means.',
       ],
       connections: [
         {
@@ -271,7 +271,7 @@ export const introToIpAddressingTopic: StudyTopic = {
         'Static addressing is manual and predictable, while dynamic addressing is easier to manage at scale for most client devices.',
         'A MAC address is the hardware-level identifier of the network interface and does not play the same role as the logical IP address.',
         'If DHCP is unavailable, a host may self-assign a link-local or APIPA-style address. In IPv4 this commonly appears in the 169.254.0.0/16 range and usually indicates limited local-only usefulness.',
-        'DNS translates names into IP addresses so users do not need to memorize numeric endpoints.',
+        'DNS translates names into IP addresses so users do not need to memorise numeric endpoints.',
         'The gateway is the boundary device that forwards traffic out of the local network, usually the router in a home setup.',
       ],
       examples: [
@@ -336,7 +336,7 @@ export const introToIpAddressingTopic: StudyTopic = {
       id: 'classful-addressing',
       term: 'Classful Addressing',
       definition:
-        'The older A, B, and C class model used to describe IPv4 network sizes and default mask behavior.',
+        'The older A, B, and C class model used to describe IPv4 network sizes and default mask behaviour.',
       importance:
         'It still appears in foundational study material even though modern subnetting is more flexible.',
       sectionId: 'ipv4-structure',
@@ -431,7 +431,7 @@ export const introToIpAddressingTopic: StudyTopic = {
       'Treating the subnet mask as secondary detail instead of part of the address context.',
       'Confusing local private identity with public internet identity.',
       'Assuming a client with any address at all must therefore be healthy.',
-      'Memorizing DHCP and DNS names without understanding what fields they actually supply or translate.',
+      'Memorising DHCP and DNS names without understanding what fields they actually supply or translate.',
       'Thinking IPv6 matters only after IPv4 disappears, rather than understanding that both often coexist.',
     ],
   },

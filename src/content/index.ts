@@ -1,4 +1,5 @@
 import { dnsAndDhcpTopic } from './topics/dnsAndDhcp';
+import { tcpAndUdpProtocolsTopic } from './topics/tcpAndUdpProtocols';
 import { ipv6AddressesTopic } from './topics/ipv6Addresses';
 import { ipv4AddressesTopic } from './topics/ipv4Addresses';
 import { introToIpAddressingTopic } from './topics/introToIpAddressing';
@@ -41,6 +42,7 @@ export const topics: StudyTopic[] = [
   ipv4AddressesTopic,
   ipv6AddressesTopic,
   dnsAndDhcpTopic,
+  tcpAndUdpProtocolsTopic,
 ];
 
 export const getTopicBySlug = (slug: string) =>

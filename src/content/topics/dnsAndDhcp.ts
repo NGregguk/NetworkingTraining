@@ -16,14 +16,14 @@ export const dnsAndDhcpTopic: StudyTopic = {
   summary:
     'Learn how devices receive IP settings automatically, why those settings are leased rather than permanent, how DNS turns names into reachable destinations, and how APIPA and gateway details help you troubleshoot.',
   heroNote:
-    'Use this page when you want DHCP, DNS, lease timing, APIPA, and gateway behavior to feel practical instead of like a list of acronyms.',
+    'Use this page when you want DHCP, DNS, lease timing, APIPA, and gateway behaviour to feel practical instead of like a list of acronyms.',
   tags: ['DNS', 'DHCP', 'lease time', 'APIPA', 'gateway'],
   learningObjectives: [
     'Differentiate static addressing from dynamic addressing and explain when each approach is useful.',
     'Explain why DHCP assigns configuration by lease instead of permanent ownership.',
     'Describe how DHCP pools and lease duration affect busy networks differently from stable home networks.',
     'Explain how DNS maps names to IP addresses for both public and private networks.',
-    'Recognize APIPA or link-local fallback as a clue that normal DHCP-based configuration failed.',
+    'Recognise APIPA or link-local fallback as a clue that normal DHCP-based configuration failed.',
     'Read DHCP server, DNS server, MAC address, and lease details from a real client configuration.',
   ],
   sections: [
@@ -298,7 +298,7 @@ export const dnsAndDhcpTopic: StudyTopic = {
         {
           label: 'IPv4 troubleshooting context',
           href: '/topics/ipv4-addresses#reading-ipv4-on-a-real-device',
-          note: 'Use the IPv4 page if you want to connect this fallback behavior to client-side address reading more broadly.',
+          note: 'Use the IPv4 page if you want to connect this fallback behaviour to client-side address reading more broadly.',
         },
       ],
     },
@@ -308,7 +308,7 @@ export const dnsAndDhcpTopic: StudyTopic = {
       strapline:
         'The concepts become much easier to remember once you can point to the exact lines on a real adapter.',
       overview:
-        'A client configuration dump turns this topic from theory into evidence. Instead of memorizing acronyms, you can see where the DHCP server, DNS server, lease timing, MAC address, and current client IP all appear together.',
+        'A client configuration dump turns this topic from theory into evidence. Instead of memorising acronyms, you can see where the DHCP server, DNS server, lease timing, MAC address, and current client IP all appear together.',
       whyItMatters:
         'This is the bridge into troubleshooting. A single command can tell you whether the client received a lease, which server supplied it, whether the router is acting as DNS, and whether the current address looks healthy.',
       howItWorks: [

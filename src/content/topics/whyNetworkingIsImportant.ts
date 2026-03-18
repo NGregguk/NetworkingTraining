@@ -23,8 +23,8 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
     'Distinguish logical addressing, physical addressing, naming, and routing decisions in a working network.',
     'Compare TCP and UDP and recall the common services that depend on important port numbers.',
     'Identify the jobs performed by common network hardware such as routers, switches, access points, firewalls, and NICs.',
-    'Recognize network types, wireless technologies, server roles, and troubleshooting tools in real environments.',
-    'Plan a basic home or small business network with sensible segmentation, naming, security, and optimization choices.',
+    'Recognise network types, wireless technologies, server roles, and troubleshooting tools in real environments.',
+    'Plan a basic home or small business network with sensible segmentation, naming, security, and optimisation choices.',
   ],
   sections: [
     {
@@ -82,7 +82,7 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
         'A subnet mask separates the network portion of an IPv4 address from the host portion. That tells a device whether a destination is on the same subnet or whether traffic must go to a gateway.',
         'Private IPv4 ranges defined by RFC 1918 allow internal devices to use non-public addresses. Routers then perform network address translation so many internal devices can share a smaller number of public addresses.',
         'DHCP automates configuration by leasing out IP settings such as the device address, subnet mask, gateway, and DNS server. Those leases expire, so addresses can be reused efficiently.',
-        'DNS converts human-friendly names into IP addresses. This keeps users from having to memorize numeric addresses for every site or service they use.',
+        'DNS converts human-friendly names into IP addresses. This keeps users from having to memorise numeric addresses for every site or service they use.',
         'A MAC address identifies a network interface at the hardware level. If DHCP is unavailable, an IPv4 host may fall back to APIPA in the 169.254.0.0/16 range, which allows limited local-only communication.',
       ],
       examples: [
@@ -103,7 +103,7 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
       ],
       recap: [
         'IP gives a device a logical identity, the subnet mask defines locality, DHCP automates settings, DNS resolves names, and the gateway reaches other networks.',
-        'Private addressing and NAT let organizations stretch limited public IPv4 space.',
+        'Private addressing and NAT let organisations stretch limited public IPv4 space.',
         'When a client has bad or missing addressing, many higher-level failures are just symptoms.',
       ],
       connections: [
@@ -125,7 +125,7 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
         {
           label: 'Dedicated DNS and DHCP lesson',
           href: '/topics/dns-and-dhcp',
-          note: 'Use the focused page if you want a fuller treatment of lease timing, APIPA, DNS resolution, and gateway behavior.',
+          note: 'Use the focused page if you want a fuller treatment of lease timing, APIPA, DNS resolution, and gateway behaviour.',
         },
         {
           label: 'Key terms in the glossary',
@@ -287,6 +287,11 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
           href: '#hosts-and-services',
           note: 'The next layers are the servers and appliances that expose these endpoints.',
         },
+        {
+          label: 'Deep dive on TCP, UDP, and ports',
+          href: '/topics/tcp-and-udp-protocols',
+          note: 'Open the dedicated lesson if you want the fuller transport comparison, grouped port memorisation, and firewall troubleshooting examples.',
+        },
       ],
     },
     {
@@ -298,11 +303,11 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
       whyItMatters:
         'When you know what each device is supposed to do, outages become easier to isolate. It also becomes clearer why a home router can feel like one box, while an office network usually breaks the same functions apart into dedicated hardware.',
       howItWorks: [
-        'A modem or ONT converts the provider medium into a signal your internal network can use. DSL and cable rely on modems, while fiber commonly uses an optical network terminal.',
+        'A modem or ONT converts the provider medium into a signal your internal network can use. DSL and cable rely on modems, while fibre commonly uses an optical network terminal.',
         'A router joins different networks together and usually acts as the default gateway for clients. It often also hosts DHCP, NAT, and basic firewall features in smaller environments.',
-        'A switch connects many local wired devices on the same network and can be unmanaged or managed. Managed switches allow configuration such as VLAN membership or port behavior.',
+        'A switch connects many local wired devices on the same network and can be unmanaged or managed. Managed switches allow configuration such as VLAN membership or port behaviour.',
         'A wireless access point bridges wireless clients onto the wired Ethernet network. In home gear, the access point is often built into the router, but business environments often separate them.',
-        'Firewalls filter traffic based on ports, protocols, applications, or policies. Patch panels improve cable organization, and NICs provide each endpoint with a network interface and MAC address.',
+        'Firewalls filter traffic based on ports, protocols, applications, or policies. Patch panels improve cable organisation, and NICs provide each endpoint with a network interface and MAC address.',
         'Power over Ethernet lets a cable carry both network traffic and electrical power, which is especially useful for cameras, phones, and access points.',
       ],
       examples: [
@@ -347,12 +352,12 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
         'A MAN links networks across a city or campus, while a WAN spans broader geography. The internet is the best-known WAN because it interconnects countless other networks.',
         'A SAN is different from user access networking because it focuses on high-speed shared storage for servers.',
         'VLANs let one physical switching environment carry multiple logical networks. This is useful for separating guests, IoT devices, servers, or staff traffic without buying a separate switch for every segment.',
-        'Internet service options trade off speed, latency, symmetry, availability, and geography. DSL and cable rely on older media, fiber delivers the best performance in most cases, and satellite or rural wireless fill availability gaps.',
+        'Internet service options trade off speed, latency, symmetry, availability, and geography. DSL and cable rely on older media, fibre delivers the best performance in most cases, and satellite or rural wireless fill availability gaps.',
         'Cellular home internet has become more practical with modern 5G coverage, but it still depends heavily on local signal quality and provider conditions.',
       ],
       examples: [
         'A home router may expose one staff SSID, one guest SSID, and one IoT SSID, each mapped to a different VLAN.',
-        'Cable internet can offer strong download speeds but often much lower upload rates than fiber, which is important for home offices and backups.',
+        'Cable internet can offer strong download speeds but often much lower upload rates than fibre, which is important for home offices and backups.',
         'Satellite can be the only realistic option in remote locations, but latency-sensitive workloads feel the difference quickly.',
       ],
       misconceptions: [
@@ -370,7 +375,7 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
         { label: 'LAN / WLAN', value: 'Local Area Network', detail: 'Home or office network, wired or wireless.' },
         { label: 'MAN / WAN', value: 'Metro and wide scope', detail: 'Campus, city, regional, or global interconnection.' },
         { label: 'SAN', value: 'Storage Area Network', detail: 'High-speed shared storage fabric for servers.' },
-        { label: 'Fiber', value: 'Best overall performance', detail: 'High bandwidth with low latency and strong upload speeds.' },
+        { label: 'Fibre', value: 'Best overall performance', detail: 'High bandwidth with low latency and strong upload speeds.' },
         { label: 'Satellite', value: 'Best for reach', detail: 'Useful where wired options do not exist, but with latency tradeoffs.' },
       ],
       connections: [
@@ -386,14 +391,14 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
       title: 'Wireless Networking Is More Than Just Wi-Fi',
       strapline: 'Wireless design is a balance of range, spectrum, speed, and device purpose.',
       overview:
-        'Wireless communication is often collapsed into "Wi-Fi," but different wireless protocols are optimized for different goals such as throughput, range, battery life, or close-contact exchanges.',
+        'Wireless communication is often collapsed into "Wi-Fi," but different wireless protocols are optimised for different goals such as throughput, range, battery life, or close-contact exchanges.',
       whyItMatters:
         'Wireless problems are common, and they often come from a mismatch between what a user wants and what the spectrum, channel plan, device capability, or physical environment can actually support.',
       howItWorks: [
         'Wi-Fi standards evolved from 802.11a/b/g into Wi-Fi 4, 5, 6, 6E, and 7. Each generation improved throughput, spectrum use, or multi-stream capability.',
         'The 2.4 GHz band usually travels farther and penetrates obstacles better, but it is more crowded. The 5 GHz band typically offers better throughput with shorter reach, and 6 GHz opens cleaner spectrum for newer clients.',
         'Channels divide frequency space into usable slices. Wider channels can carry more data, but they also consume more spectrum and can become a poor choice in congested environments.',
-        'Wi-Fi analyzers reveal nearby networks, channel overlap, signal strength, and utilization. They are useful for both troubleshooting and optimization.',
+        'Wi-Fi analysers reveal nearby networks, channel overlap, signal strength, and utilisation. They are useful for both troubleshooting and optimisation.',
         'Bluetooth focuses on low-power short-range connectivity, NFC enables very close-range exchanges such as tap-to-pay, and RFID identifies tagged items over radio without requiring direct line of sight like a barcode scanner.',
       ],
       examples: [
@@ -409,7 +414,7 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
       recap: [
         'Wireless design is a tradeoff between speed, range, spectrum cleanliness, and battery use.',
         'Wi-Fi generations matter, but frequency band and channel planning matter just as much.',
-        'A good analyzer turns vague wireless complaints into measurable evidence.',
+        'A good analyser turns vague wireless complaints into measurable evidence.',
       ],
       referenceItems: [
         { label: 'Wi-Fi 4', value: '802.11n', detail: '2.4 GHz and 5 GHz, introduces MIMO, up to 600 Mbps theoretical.' },
@@ -419,9 +424,9 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
       ],
       connections: [
         {
-          label: 'Tools used to analyze signal and channels',
+          label: 'Tools used to analyse signal and channels',
           href: '#tools-and-practical-design',
-          note: 'Wireless optimization depends on the right tools as well as the right theory.',
+          note: 'Wireless optimisation depends on the right tools as well as the right theory.',
         },
       ],
     },
@@ -432,7 +437,7 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
       overview:
         'After the physical and logical pieces are in place, the network exists to host useful systems. Classic server roles, edge security appliances, legacy environments, and IoT all shape how that network is used and protected.',
       whyItMatters:
-        'IT workers spend a lot of time supporting services instead of cables. Understanding what each server or appliance is supposed to provide helps you recognize whether a failure is caused by the host itself, the network path, or an access policy in between.',
+        'IT workers spend a lot of time supporting services instead of cables. Understanding what each server or appliance is supposed to provide helps you recognise whether a failure is caused by the host itself, the network path, or an access policy in between.',
       howItWorks: [
         'Common server roles include web, file, print, mail, database, DNS, DHCP, syslog, and AAA services. Each role answers a specific operational need rather than being a generic "server."',
         'Load balancers spread traffic across multiple back-end resources and can improve both scale and resilience by removing failed servers from rotation.',
@@ -443,7 +448,7 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
       ],
       examples: [
         'A company intranet may depend on a private web server, internal DNS records, and an authentication service even though users only see a browser page.',
-        'A smart plug using only tiny amounts of data may be normal, while unexpectedly heavy usage could signal compromise or misbehavior.',
+        'A smart plug using only tiny amounts of data may be normal, while unexpectedly heavy usage could signal compromise or misbehaviour.',
         'A guest network, an office network, and an IoT network can coexist on the same hardware but follow different rules.',
       ],
       misconceptions: [
@@ -457,7 +462,7 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
         'Segmentation is especially useful for guest, legacy, and IoT environments.',
       ],
       referenceItems: [
-        { label: 'AAA', value: 'Authentication, Authorization, Accounting', detail: 'Confirm identity, check permissions, record activity.' },
+        { label: 'AAA', value: 'Authentication, Authorisation, Accounting', detail: 'Confirm identity, check permissions, record activity.' },
         { label: 'UTM', value: 'Unified Threat Management', detail: 'Multiple security controls in one appliance.' },
         { label: 'SCADA', value: 'Industrial control framework', detail: 'Common in embedded and operational technology environments.' },
         { label: 'Proxy', value: 'Intermediary service', detail: 'Can filter, cache, or hide client details.' },
@@ -485,15 +490,15 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
         'A study guide is incomplete if it never moves from "what things are" to "how you would actually deploy and validate them." Tool knowledge sharpens troubleshooting, while design knowledge prevents avoidable mistakes.',
       howItWorks: [
         'Physical tools such as crimpers, cable strippers, punch-down tools, tone generators, probes, and cable testers help you terminate, trace, and validate cabling.',
-        'Loopback plugs and network TAPs help isolate interface and packet-observation problems. Wi-Fi analyzers do the same job for the wireless side by exposing channels, utilization, and signal conditions.',
+        'Loopback plugs and network TAPs help isolate interface and packet-observation problems. Wi-Fi analysers do the same job for the wireless side by exposing channels, utilisation, and signal conditions.',
         'A practical network design usually begins with selecting the ISP and verifying what kind of provider handoff you will receive. After that, the first administrative action should be changing default credentials on network gear.',
         'Good small-network design separates traffic where useful, defines DHCP ranges deliberately, keeps static addressing outside the lease pool, and sets wireless names and channels with intent rather than defaults.',
-        'Optimization often means adding access points, adjusting QoS, or refining segmentation rather than simply buying more bandwidth.',
+        'Optimisation often means adding access points, adjusting QoS, or refining segmentation rather than simply buying more bandwidth.',
         'Advanced DNS records extend a network beyond basic name resolution. A and AAAA records map names to IPv4 or IPv6 addresses, MX directs mail flow, and TXT-based records such as SPF, DKIM, and DMARC help validate email legitimacy.',
       ],
       examples: [
         'A cable tester immediately reveals whether all eight conductors in an Ethernet cable are correctly pinned end to end.',
-        'A home office desktop can be prioritized above streaming devices with QoS when work traffic matters more than entertainment traffic.',
+        'A home office desktop can be prioritised above streaming devices with QoS when work traffic matters more than entertainment traffic.',
         'Setting aside part of a subnet for static servers prevents collisions with DHCP-issued client addresses.',
       ],
       misconceptions: [
@@ -504,13 +509,13 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
       recap: [
         'Use the right tool to prove the problem before changing the network.',
         'Design small networks around separation, predictable addressing, and secure defaults.',
-        'Optimization is usually about clarity and fit, not just raw speed.',
+        'Optimisation is usually about clarity and fit, not just raw speed.',
       ],
       referenceItems: [
         { label: 'A / AAAA', value: 'Host records', detail: 'Map names to IPv4 or IPv6 addresses.' },
         { label: 'MX', value: 'Mail exchanger', detail: 'Tells senders which host handles email for a domain.' },
         { label: 'TXT', value: 'Flexible text record', detail: 'Often used for ownership checks and email policy records.' },
-        { label: 'SPF', value: 'Sender Policy Framework', detail: 'Lists authorized mail senders.' },
+        { label: 'SPF', value: 'Sender Policy Framework', detail: 'Lists authorised mail senders.' },
         { label: 'DKIM', value: 'DomainKeys Identified Mail', detail: 'Uses cryptographic signing to validate mail origin.' },
         { label: 'DMARC', value: 'Domain-based Message Authentication Reporting and Conformance', detail: 'Tells receivers how to handle spoofed mail and how to report it.' },
       ],
@@ -518,7 +523,7 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
         {
           label: 'Jump back to wireless planning',
           href: '#wireless-technologies',
-          note: 'Analyzer data is most useful when paired with a solid understanding of spectrum tradeoffs.',
+          note: 'Analyser data is most useful when paired with a solid understanding of spectrum tradeoffs.',
         },
         {
           label: 'Revision checklist',
@@ -533,7 +538,7 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
       id: 'aaa',
       term: 'AAA',
       definition:
-        'A security model covering authentication, authorization, and accounting.',
+        'A security model covering authentication, authorisation, and accounting.',
       importance:
         'It explains how networks verify identity, enforce permissions, and retain activity records.',
       sectionId: 'hosts-and-services',
@@ -580,7 +585,7 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
       definition:
         'A mail-authentication method that signs messages cryptographically so receivers can verify domain-aligned sending.',
       importance:
-        'It helps prove that an email was not altered and really came through an authorized signing system.',
+        'It helps prove that an email was not altered and really came through an authorised signing system.',
       sectionId: 'tools-and-practical-design',
     },
     {
@@ -607,7 +612,7 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
       definition:
         'Internet Message Access Protocol, used for retrieving and managing email on a server.',
       importance:
-        'It keeps mailboxes server-centered and is common in modern mail access patterns.',
+        'It keeps mailboxes server-centred and is common in modern mail access patterns.',
       sectionId: 'transport-and-ports',
     },
     {
@@ -704,7 +709,7 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
       id: 'qos',
       term: 'QoS',
       definition:
-        'Quality of Service, a set of controls for prioritizing some network traffic over other traffic.',
+        'Quality of Service, a set of controls for prioritising some network traffic over other traffic.',
       importance:
         'It is useful when important workloads should keep performance during congestion.',
       sectionId: 'tools-and-practical-design',
@@ -807,9 +812,9 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
       'Identify the endpoint: IP, MAC, subnet, gateway, DNS.',
       'Choose the delivery style: TCP for reliability, UDP for immediacy.',
       'Trace the path: modem or ONT -> router -> switch -> access point -> client.',
-      'Recognize the scope: PAN, LAN, VLAN, WAN, SAN, and provider link type.',
+      'Recognise the scope: PAN, LAN, VLAN, WAN, SAN, and provider link type.',
       'Map the service: server role, port, policy, and security appliance.',
-      'Validate and optimize: test cables, inspect Wi-Fi, segment risky devices, refine QoS and DNS.',
+      'Validate and optimise: test cables, inspect Wi-Fi, segment risky devices, refine QoS and DNS.',
     ],
     checklist: [
       'I can explain the difference between logical addressing and hardware addressing.',
@@ -818,8 +823,8 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
       'I can compare TCP and UDP in terms of setup, delivery guarantees, and common use cases.',
       'I can name the role of routers, switches, access points, firewalls, patch panels, and NICs.',
       'I can distinguish LAN, VLAN, WAN, and SAN and connect those ideas to actual environments.',
-      'I can explain why wireless design involves frequency, channels, standards, and analyzer data.',
-      'I can outline a sensible home or small business setup with segmentation, secure defaults, and basic optimization.',
+      'I can explain why wireless design involves frequency, channels, standards, and analyser data.',
+      'I can outline a sensible home or small business setup with segmentation, secure defaults, and basic optimisation.',
     ],
     questions: [
       'Why can two devices on the same home Wi-Fi show the same public IP but different internal IPs?',
@@ -833,7 +838,7 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
     ],
     pitfalls: [
       'Treating every connectivity issue as "the internet is down" instead of first checking local addressing and name resolution.',
-      'Confusing public versus private IP addressing and misreading NAT behavior.',
+      'Confusing public versus private IP addressing and misreading NAT behaviour.',
       'Assuming more bandwidth fixes interference, poor channel choice, or weak coverage.',
       'Leaving default credentials and flat network design in place after installation.',
       'Ignoring mail-related DNS records when learning DNS, even though they matter for real-world service reliability.',
