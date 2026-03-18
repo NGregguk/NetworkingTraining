@@ -11,6 +11,21 @@
     <title>Network Atlas</title>
     <script>
       (function () {
+        const redirectedPath = new URL(window.location.href).searchParams.get('p');
+
+        if (!redirectedPath) {
+          return;
+        }
+
+        window.history.replaceState(
+          null,
+          '',
+          `/NetworkingTraining${redirectedPath}`,
+        );
+      })();
+    </script>
+    <script>
+      (function () {
         const storageKey = 'network-atlas-theme';
         const stored = localStorage.getItem(storageKey);
         const theme =
