@@ -4,14 +4,17 @@ import { glossaryTerms, topics } from '../content';
 
 type Theme = 'light' | 'dark';
 
-const storageKey = 'network-atlas-theme';
+const storageKey = 'network-field-guide-theme';
+const legacyStorageKey = 'network-atlas-theme';
 
 function getInitialTheme(): Theme {
   if (typeof window === 'undefined') {
     return 'light';
   }
 
-  const storedTheme = window.localStorage.getItem(storageKey);
+  const storedTheme =
+    window.localStorage.getItem(storageKey) ??
+    window.localStorage.getItem(legacyStorageKey);
 
   if (storedTheme === 'light' || storedTheme === 'dark') {
     return storedTheme;
@@ -30,6 +33,8 @@ const navigationItems = [
 ];
 
 export default function SiteLayout() {
+  const compactScrollThreshold = 88;
+  const expandScrollThreshold = 40;
   const location = useLocation();
   const mobileNavigationId = useId();
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
@@ -60,19 +65,25 @@ export default function SiteLayout() {
     window.localStorage.setItem(storageKey, theme);
     document
       .querySelector('meta[name="theme-color"]')
-      ?.setAttribute('content', theme === 'dark' ? '#07151c' : '#f8f2e8');
+      ?.setAttribute('content', theme === 'dark' ? '#1e1e1e' : '#f0f0f0');
   }, [theme]);
 
   useEffect(() => {
     const onScroll = () => {
-      setIsHeaderCompact(window.scrollY > 72);
+      setIsHeaderCompact((current) => {
+        const nextCompactState = current
+          ? window.scrollY > expandScrollThreshold
+          : window.scrollY > compactScrollThreshold;
+
+        return current === nextCompactState ? current : nextCompactState;
+      });
     };
 
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
 
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [compactScrollThreshold, expandScrollThreshold]);
 
   useEffect(() => {
     if (typeof window === 'undefined') {
@@ -100,7 +111,7 @@ export default function SiteLayout() {
       >
         <div className="brand-block">
           <NavLink to="/" className="brand-mark">
-            Network Atlas
+            Network Field Guide
           </NavLink>
           <p className="brand-note">
             Networking study notes for revision and reference.

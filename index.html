@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="A personal networking study platform built from transcript-based learning material."
+      content="Network Field Guide is a personal networking study platform built from transcript-based learning material."
     />
-    <meta name="theme-color" content="#f8f2e8" />
-    <title>Network Atlas</title>
+    <meta name="theme-color" content="#f0f0f0" />
+    <title>Network Field Guide</title>
     <script>
       (function () {
         const redirectedPath = new URL(window.location.href).searchParams.get('p');
@@ -26,8 +26,10 @@
     </script>
     <script>
       (function () {
-        const storageKey = 'network-atlas-theme';
-        const stored = localStorage.getItem(storageKey);
+        const storageKey = 'network-field-guide-theme';
+        const legacyStorageKey = 'network-atlas-theme';
+        const stored =
+          localStorage.getItem(storageKey) ?? localStorage.getItem(legacyStorageKey);
         const theme =
           stored === 'light' || stored === 'dark'
             ? stored
@@ -35,10 +37,14 @@
               ? 'dark'
               : 'light';
 
+        if (stored === 'light' || stored === 'dark') {
+          localStorage.setItem(storageKey, stored);
+        }
+
         document.documentElement.dataset.theme = theme;
         document.documentElement.style.colorScheme = theme;
 
-        const themeColor = theme === 'dark' ? '#07151c' : '#f8f2e8';
+        const themeColor = theme === 'dark' ? '#1e1e1e' : '#f0f0f0';
         document
           .querySelector('meta[name="theme-color"]')
           ?.setAttribute('content', themeColor);

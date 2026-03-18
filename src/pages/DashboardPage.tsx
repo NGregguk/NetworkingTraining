@@ -12,7 +12,7 @@ export default function DashboardPage() {
     <div className="page-content stagger">
       <section className="hero-grid">
         <article className="hero-card">
-          <p className="eyebrow">Networking Study Guide</p>
+          <p className="eyebrow">Network Field Guide</p>
           <h1>Learn Networking In A Clear Study Order</h1>
           <p className="lede">
             Start with the foundations, move into focused lessons, keep key
