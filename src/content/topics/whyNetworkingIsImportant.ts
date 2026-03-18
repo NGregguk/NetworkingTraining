@@ -292,6 +292,11 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
           href: '/topics/tcp-and-udp-protocols',
           note: 'Open the dedicated lesson if you want the fuller transport comparison, grouped port memorisation, and firewall troubleshooting examples.',
         },
+        {
+          label: 'Protocol and port reference page',
+          href: '/topics/common-network-protocols-and-ports',
+          note: 'Open the dedicated protocol catalogue if you want the common service ports grouped by administration, web, email, infrastructure, and Windows support work.',
+        },
       ],
     },
     {

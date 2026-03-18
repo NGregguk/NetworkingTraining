@@ -477,6 +477,11 @@ export const tcpAndUdpProtocolsTopic: StudyTopic = {
           href: '/topics/dns-and-dhcp',
           note: 'Use the dedicated service page if you want the port discussion tied back to lease behaviour, gateway details, and practical client configuration.',
         },
+        {
+          label: 'Dedicated protocol and port catalogue',
+          href: '/topics/common-network-protocols-and-ports',
+          note: 'Open the dedicated page if you want the protocol list grouped by service family rather than transport behaviour.',
+        },
       ],
     },
     {

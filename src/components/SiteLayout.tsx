@@ -36,11 +36,13 @@ const navigationItems = [
 export default function SiteLayout() {
   const compactScrollThreshold = 88;
   const expandScrollThreshold = 40;
+  const backToTopVisibilityThreshold = 440;
   const location = useLocation();
   const mobileNavigationId = useId();
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
   const [isHeaderCompact, setIsHeaderCompact] = useState(false);
   const [isMobileNavigationOpen, setIsMobileNavigationOpen] = useState(false);
+  const [isBackToTopVisible, setIsBackToTopVisible] = useState(false);
 
   useEffect(() => {
     if (!location.hash) {
@@ -71,12 +73,19 @@ export default function SiteLayout() {
 
   useEffect(() => {
     const onScroll = () => {
+      const scrollY = window.scrollY;
+
       setIsHeaderCompact((current) => {
         const nextCompactState = current
-          ? window.scrollY > expandScrollThreshold
-          : window.scrollY > compactScrollThreshold;
+          ? scrollY > expandScrollThreshold
+          : scrollY > compactScrollThreshold;
 
         return current === nextCompactState ? current : nextCompactState;
+      });
+
+      setIsBackToTopVisible((current) => {
+        const nextVisibleState = scrollY > backToTopVisibilityThreshold;
+        return current === nextVisibleState ? current : nextVisibleState;
       });
     };
 
@@ -84,7 +93,11 @@ export default function SiteLayout() {
     window.addEventListener('scroll', onScroll, { passive: true });
 
     return () => window.removeEventListener('scroll', onScroll);
-  }, [compactScrollThreshold, expandScrollThreshold]);
+  }, [
+    backToTopVisibilityThreshold,
+    compactScrollThreshold,
+    expandScrollThreshold,
+  ]);
 
   useEffect(() => {
     if (typeof window === 'undefined') {
@@ -187,6 +200,22 @@ export default function SiteLayout() {
       <main className="page-shell">
         <Outlet />
       </main>
+
+      <button
+        type="button"
+        className={
+          isBackToTopVisible
+            ? 'back-to-top back-to-top-visible'
+            : 'back-to-top'
+        }
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label="Back to top"
+      >
+        <span className="back-to-top-icon" aria-hidden="true">
+          ↑
+        </span>
+        <span className="back-to-top-label">Back to top</span>
+      </button>
 
       <footer className="site-footer">
         <div>
