@@ -1,6 +1,7 @@
 import { useEffect, useId, useState } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { glossaryTerms, topics } from '../content';
+import SiteSearch from './SiteSearch';
 
 type Theme = 'light' | 'dark';
 
@@ -139,6 +140,7 @@ export default function SiteLayout() {
           ))}
         </nav>
         <div className="header-actions">
+          <SiteSearch onOpen={() => setIsMobileNavigationOpen(false)} />
           <button
             type="button"
             className={
