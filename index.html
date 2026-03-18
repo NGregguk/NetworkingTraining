@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A personal networking study platform built from transcript-based learning material."
+    />
+    <meta name="theme-color" content="#f8f2e8" />
+    <title>Network Atlas</title>
+    <script>
+      (function () {
+        const storageKey = 'network-atlas-theme';
+        const stored = localStorage.getItem(storageKey);
+        const theme =
+          stored === 'light' || stored === 'dark'
+            ? stored
+            : window.matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light';
+
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+
+        const themeColor = theme === 'dark' ? '#07151c' : '#f8f2e8';
+        document
+          .querySelector('meta[name="theme-color"]')
+          ?.setAttribute('content', themeColor);
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
