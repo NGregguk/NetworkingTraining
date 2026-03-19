@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import InlineFormattedText from '../components/InlineFormattedText';
+import OnThisPageNav from '../components/OnThisPageNav';
 import TopicSectionCard from '../components/TopicSectionCard';
 import { getTopicBySlug } from '../content';
 import NotFoundPage from './NotFoundPage';
@@ -69,6 +70,12 @@ export default function TopicPage() {
     return <NotFoundPage />;
   }
 
+  const sectionLinks = topic.sections.map((section) => ({
+    id: section.id,
+    href: `#${section.id}`,
+    label: section.title,
+  }));
+
   return (
     <div className="page-content topic-layout stagger">
       <aside className="topic-rail topic-rail-left">
@@ -97,6 +104,23 @@ export default function TopicPage() {
             <span>{topic.level}</span>
           </div>
         </section>
+
+        <details className="card on-this-page-mobile">
+          <summary className="on-this-page-summary">
+            <span className="on-this-page-summary-copy">
+              <span className="eyebrow on-this-page-eyebrow">On This Page</span>
+              <span className="on-this-page-summary-detail">
+                {sectionLinks.length} sections
+              </span>
+            </span>
+            <span className="on-this-page-chevron" aria-hidden="true">
+              ▾
+            </span>
+          </summary>
+          <nav className="on-this-page-mobile-body" aria-label="On this page">
+            <OnThisPageNav items={sectionLinks} activeId={activeSectionId} />
+          </nav>
+        </details>
 
         <section className="card">
           <div className="section-title-row">
@@ -162,27 +186,9 @@ export default function TopicPage() {
       </div>
 
       <aside className="topic-rail topic-rail-right">
-        <div className="card sticky-card">
+        <div className="card sticky-card on-this-page-desktop">
           <p className="eyebrow">On This Page</p>
-          <ul className="section-nav">
-            {topic.sections.map((section) => (
-              <li key={section.id}>
-                <a
-                  href={`#${section.id}`}
-                  className={
-                    activeSectionId === section.id
-                      ? 'section-nav-link section-nav-link-active'
-                      : 'section-nav-link'
-                  }
-                  aria-current={
-                    activeSectionId === section.id ? 'location' : undefined
-                  }
-                >
-                  {section.title}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <OnThisPageNav items={sectionLinks} activeId={activeSectionId} />
         </div>
       </aside>
     </div>

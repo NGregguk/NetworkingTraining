@@ -1,12 +1,18 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import InlineFormattedText from '../components/InlineFormattedText';
+import OnThisPageNav from '../components/OnThisPageNav';
 import { topics } from '../content';
 
 export default function RevisionPage() {
   const [activeTopicId, setActiveTopicId] = useState(
     topics.length ? `revision-${topics[0].slug}` : '',
   );
+  const topicLinks = topics.map((topic) => ({
+    id: `revision-${topic.slug}`,
+    href: `#revision-${topic.slug}`,
+    label: topic.title,
+  }));
 
   useEffect(() => {
     if (!topics.length) {
@@ -74,6 +80,23 @@ export default function RevisionPage() {
             reinforcement, not as a replacement for the deeper explanations.
           </p>
         </section>
+
+        <details className="card on-this-page-mobile">
+          <summary className="on-this-page-summary">
+            <span className="on-this-page-summary-copy">
+              <span className="eyebrow on-this-page-eyebrow">On This Page</span>
+              <span className="on-this-page-summary-detail">
+                {topicLinks.length} topics
+              </span>
+            </span>
+            <span className="on-this-page-chevron" aria-hidden="true">
+              ▾
+            </span>
+          </summary>
+          <nav className="on-this-page-mobile-body" aria-label="On this page">
+            <OnThisPageNav items={topicLinks} activeId={activeTopicId} />
+          </nav>
+        </details>
 
         {topics.map((topic) => (
           <section
@@ -147,31 +170,9 @@ export default function RevisionPage() {
       </div>
 
       <aside className="revision-rail">
-        <div className="card sticky-card">
+        <div className="card sticky-card on-this-page-desktop">
           <p className="eyebrow">On This Page</p>
-          <ul className="section-nav">
-            {topics.map((topic) => {
-              const topicId = `revision-${topic.slug}`;
-
-              return (
-                <li key={topic.slug}>
-                  <a
-                    href={`#${topicId}`}
-                    className={
-                      activeTopicId === topicId
-                        ? 'section-nav-link section-nav-link-active'
-                        : 'section-nav-link'
-                    }
-                    aria-current={
-                      activeTopicId === topicId ? 'location' : undefined
-                    }
-                  >
-                    {topic.title}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
+          <OnThisPageNav items={topicLinks} activeId={activeTopicId} />
         </div>
       </aside>
     </div>
