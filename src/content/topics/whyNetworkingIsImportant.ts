@@ -12,7 +12,7 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
   level: 'Foundational',
   estimatedStudyTime: '55 minutes',
   sourceFile: 'context files/why networking is important.pdf',
-  updatedOn: 'March 18, 2026',
+  updatedOn: 'March 19, 2026',
   summary:
     'A broad overview of networking fundamentals covering addressing, transport, hardware, wireless, services, troubleshooting tools, and small-network design.',
   heroNote:
@@ -323,7 +323,7 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
       misconceptions: [
         '"A router and switch are basically the same." One joins networks; the other expands local connectivity inside a network.',
         '"PoE is only for tiny low-power devices." Newer PoE standards can power far more capable equipment.',
-        '"Patch panels are optional decoration." They matter for maintainability, labeling, and cleaner fault isolation.',
+        '"Patch panels are optional decoration." They matter for maintainability, labelling, and cleaner fault isolation.',
       ],
       recap: [
         'Routers connect networks, switches expand local wired access, and access points bridge wireless clients to Ethernet.',
@@ -337,6 +337,11 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
         { label: 'PoE++ Type 4', value: '802.3bt', detail: 'Up to about 71.3 watts.' },
       ],
       connections: [
+        {
+          label: 'Dedicated networking hardware lesson',
+          href: '/topics/networking-hardware',
+          note: 'Open the focused page if you want the hardware roles, PoE standards, and topology examples expanded into a standalone lesson.',
+        },
         {
           label: 'Network types and VLANs',
           href: '#network-types-and-access',
@@ -385,6 +390,11 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
       ],
       connections: [
         {
+          label: 'Dedicated network types and access lesson',
+          href: '/topics/network-types-and-internet-connections',
+          note: 'Open the focused page if you want PAN, LAN, VLAN, WAN, and provider access options expanded into their own standalone lesson.',
+        },
+        {
           label: 'Wireless technologies',
           href: '#wireless-technologies',
           note: 'Wireless design choices sit inside these network boundaries.',
@@ -428,6 +438,11 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
         { label: 'Wi-Fi 7', value: '802.11be', detail: 'Adds multi-link operation and much higher theoretical throughput.' },
       ],
       connections: [
+        {
+          label: 'Dedicated wireless networking lesson',
+          href: '/topics/wireless-networking-technologies',
+          note: 'Open the focused page if you want Wi-Fi generations, bands, channels, analysers, Bluetooth, NFC, and RFID covered in more depth.',
+        },
         {
           label: 'Tools used to analyse signal and channels',
           href: '#tools-and-practical-design',
@@ -473,6 +488,11 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
         { label: 'Proxy', value: 'Intermediary service', detail: 'Can filter, cache, or hide client details.' },
       ],
       connections: [
+        {
+          label: 'Dedicated hosts and services lesson',
+          href: '/topics/networked-hosts-and-services',
+          note: 'Open the focused page if you want server roles, appliances, legacy systems, and IoT design choices treated as a standalone lesson.',
+        },
         {
           label: 'Common ports for service access',
           href: '#transport-and-ports',
@@ -525,6 +545,21 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
         { label: 'DMARC', value: 'Domain-based Message Authentication Reporting and Conformance', detail: 'Tells receivers how to handle spoofed mail and how to report it.' },
       ],
       connections: [
+        {
+          label: 'Dedicated networking tools lesson',
+          href: '/topics/networking-tools',
+          note: 'Open the focused page if you want the cable, tracing, loopback, TAP, and analyser tools broken out by purpose.',
+        },
+        {
+          label: 'Dedicated small-network planning lesson',
+          href: '/topics/planning-a-basic-home-and-small-business-network',
+          note: 'Open the planning page if you want the whole home and small-business rollout sequenced from ISP choice through optimisation.',
+        },
+        {
+          label: 'Dedicated advanced DNS records lesson',
+          href: '/topics/advanced-dns-records',
+          note: 'Open the focused DNS page if you want A, AAAA, MX, TXT, SPF, DKIM, and DMARC explained without the rest of the survey around them.',
+        },
         {
           label: 'Jump back to wireless planning',
           href: '#wireless-technologies',
@@ -850,6 +885,13 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
     ],
   },
   relatedTopicSlugs: [
+    'networking-hardware',
+    'network-types-and-internet-connections',
+    'wireless-networking-technologies',
+    'networked-hosts-and-services',
+    'networking-tools',
+    'planning-a-basic-home-and-small-business-network',
+    'advanced-dns-records',
     'intro-to-ip-addressing',
     'ipv4-addresses',
     'ipv6-addresses',

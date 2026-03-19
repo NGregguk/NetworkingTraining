@@ -6,7 +6,7 @@ export default function TopicsPage() {
     <div className="page-content stagger">
       <section className="page-hero card">
         <p className="eyebrow">Topic Index</p>
-        <h1>Study topics organized by module</h1>
+        <h1>Study topics organised by module</h1>
         <p className="lede">
           Move from broad overviews into focused lessons and use the links
           between pages to deepen your understanding of related concepts.

@@ -1,9 +1,16 @@
 import { dnsAndDhcpTopic } from './topics/dnsAndDhcp';
 import { commonNetworkProtocolsAndPortsTopic } from './topics/commonNetworkProtocolsAndPorts';
+import { advancedDnsRecordsTopic } from './topics/advancedDnsRecords';
+import { networkingHardwareTopic } from './topics/networkingHardware';
+import { networkedHostsAndServicesTopic } from './topics/networkedHostsAndServices';
+import { networkTypesAndInternetConnectionsTopic } from './topics/networkTypesAndInternetConnections';
+import { networkingToolsTopic } from './topics/networkingTools';
+import { planningHomeAndSmallBusinessNetworksTopic } from './topics/planningHomeAndSmallBusinessNetworks';
 import { tcpAndUdpProtocolsTopic } from './topics/tcpAndUdpProtocols';
 import { ipv6AddressesTopic } from './topics/ipv6Addresses';
 import { ipv4AddressesTopic } from './topics/ipv4Addresses';
 import { introToIpAddressingTopic } from './topics/introToIpAddressing';
+import { wirelessNetworkingTechnologiesTopic } from './topics/wirelessNetworkingTechnologies';
 import { whyNetworkingIsImportantTopic } from './topics/whyNetworkingIsImportant';
 import type {
   GlossaryTerm,
@@ -45,6 +52,13 @@ export const topics: StudyTopic[] = [
   dnsAndDhcpTopic,
   tcpAndUdpProtocolsTopic,
   commonNetworkProtocolsAndPortsTopic,
+  networkingHardwareTopic,
+  networkTypesAndInternetConnectionsTopic,
+  wirelessNetworkingTechnologiesTopic,
+  networkedHostsAndServicesTopic,
+  networkingToolsTopic,
+  planningHomeAndSmallBusinessNetworksTopic,
+  advancedDnsRecordsTopic,
 ];
 
 export const getTopicBySlug = (slug: string) =>
