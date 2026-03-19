@@ -95,7 +95,6 @@ export default function TopicPage() {
           <p className="hero-note">{topic.heroNote}</p>
           <div className="meta-row">
             <span>{topic.level}</span>
-            <span>{topic.estimatedStudyTime}</span>
           </div>
         </section>
 

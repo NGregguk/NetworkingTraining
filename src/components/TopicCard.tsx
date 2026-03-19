@@ -24,7 +24,6 @@ export default function TopicCard({
       </div>
       <h3 className="topic-card-title">{topic.title}</h3>
       <div className="meta-row topic-card-meta">
-        <span>{topic.estimatedStudyTime}</span>
         <span>{topic.sections.length} sections</span>
       </div>
       <p className="card-copy topic-card-summary">{topic.summary}</p>

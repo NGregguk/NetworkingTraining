@@ -190,7 +190,6 @@ const searchIndex: SearchIndexDocument[] = topics.flatMap((topic) => {
         topic.module.title,
         topic.module.summary,
         topic.level,
-        topic.estimatedStudyTime,
         topic.updatedOn,
         ...topic.tags,
         ...topic.learningObjectives,
