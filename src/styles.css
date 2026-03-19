@@ -989,6 +989,14 @@ p {
   padding: 1rem 1.1rem;
   cursor: pointer;
   list-style: none;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+.on-this-page-summary:hover,
+.on-this-page-summary:focus-visible {
+  background: var(--panel-bg);
 }
 
 .on-this-page-summary::-webkit-details-marker {
@@ -1013,9 +1021,43 @@ p {
   font-weight: 500;
 }
 
+.on-this-page-summary-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.42rem 0.68rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--reference-bg);
+  color: var(--accent-strong);
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.on-this-page-state-open {
+  display: none;
+}
+
+.on-this-page-mobile[open] .on-this-page-state-closed {
+  display: none;
+}
+
+.on-this-page-mobile[open] .on-this-page-state-open {
+  display: inline;
+}
+
 .on-this-page-chevron {
   color: var(--accent-strong);
-  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.95rem;
+  font-size: 0.9rem;
+  line-height: 1;
   transition: transform 180ms ease;
 }
 

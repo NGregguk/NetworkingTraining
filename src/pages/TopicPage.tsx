@@ -113,8 +113,14 @@ export default function TopicPage() {
                 {sectionLinks.length} sections
               </span>
             </span>
-            <span className="on-this-page-chevron" aria-hidden="true">
-              ▾
+            <span className="on-this-page-summary-action" aria-hidden="true">
+              <span className="on-this-page-state on-this-page-state-closed">
+                Show list
+              </span>
+              <span className="on-this-page-state on-this-page-state-open">
+                Hide list
+              </span>
+              <span className="on-this-page-chevron">v</span>
             </span>
           </summary>
           <nav className="on-this-page-mobile-body" aria-label="On this page">
