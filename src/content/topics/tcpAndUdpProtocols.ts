@@ -531,6 +531,11 @@ export const tcpAndUdpProtocolsTopic: StudyTopic = {
           href: '/revision',
           note: 'Use the revision page once you can explain transport choice, key ports, and firewall impact without reading from the page.',
         },
+        {
+          label: 'Firewall rules and ACLs',
+          href: '/topics/firewall-rules-and-acls',
+          note: 'Use the dedicated firewall page if you want protocol-plus-port logic turned into readable allow, deny, and rule-order decisions.',
+        },
       ],
     },
   ],
@@ -713,5 +718,6 @@ export const tcpAndUdpProtocolsTopic: StudyTopic = {
     'why-networking-is-important',
     'intro-to-ip-addressing',
     'dns-and-dhcp',
+    'firewall-rules-and-acls',
   ],
 };

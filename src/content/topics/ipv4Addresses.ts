@@ -214,6 +214,11 @@ export const ipv4AddressesTopic: StudyTopic = {
           href: '/topics/intro-to-ip-addressing#ipv4-structure',
           note: 'Use the wider addressing page if you want IPv4, IPv6, DHCP, DNS, and NAT explained together.',
         },
+        {
+          label: 'Dedicated subnetting and CIDR lesson',
+          href: '/topics/subnetting-and-cidr-in-practice',
+          note: 'Open the focused subnetting page if you want masks, prefixes, usable ranges, and subnet splitting covered in more depth.',
+        },
       ],
     },
     {

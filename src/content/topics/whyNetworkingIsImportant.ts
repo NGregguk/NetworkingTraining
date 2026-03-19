@@ -128,6 +128,21 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
           note: 'Use the focused page if you want a fuller treatment of lease timing, APIPA, DNS resolution, and gateway behaviour.',
         },
         {
+          label: 'Dedicated subnetting and CIDR lesson',
+          href: '/topics/subnetting-and-cidr-in-practice',
+          note: 'Use the focused page if you want masks, prefixes, usable ranges, and practical subnet splitting treated in more depth.',
+        },
+        {
+          label: 'Dedicated routing basics lesson',
+          href: '/topics/routing-basics',
+          note: 'Use the focused page if you want default gateways, route tables, next hops, and packet paths explained as their own topic.',
+        },
+        {
+          label: 'Dedicated NAT and port-forwarding lesson',
+          href: '/topics/nat-pat-and-port-forwarding',
+          note: 'Use the focused page if you want private-to-public translation, PAT, double NAT, and inbound publishing treated as their own topic.',
+        },
+        {
           label: 'Key terms in the glossary',
           href: '/glossary#ip-address',
           note: 'Use the glossary to reinforce the difference between IP, MAC, NAT, and APIPA.',
@@ -297,6 +312,11 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
           href: '/topics/common-network-protocols-and-ports',
           note: 'Open the dedicated protocol catalogue if you want the common service ports grouped by administration, web, email, infrastructure, and Windows support work.',
         },
+        {
+          label: 'Dedicated firewall rules lesson',
+          href: '/topics/firewall-rules-and-acls',
+          note: 'Open the focused firewall page if you want allow and deny logic, rule order, implicit deny, and ACL behaviour explained clearly.',
+        },
       ],
     },
     {
@@ -444,6 +464,11 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
           note: 'Open the focused page if you want Wi-Fi generations, bands, channels, analysers, Bluetooth, NFC, and RFID covered in more depth.',
         },
         {
+          label: 'Dedicated wireless security lesson',
+          href: '/topics/wireless-security',
+          note: 'Open the focused security page if you want WPA2, WPA3, WPS, guest isolation, and practical wireless hardening treated on their own.',
+        },
+        {
           label: 'Tools used to analyse signal and channels',
           href: '#tools-and-practical-design',
           note: 'Wireless optimisation depends on the right tools as well as the right theory.',
@@ -556,9 +581,19 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
           note: 'Open the planning page if you want the whole home and small-business rollout sequenced from ISP choice through optimisation.',
         },
         {
+          label: 'Dedicated firewall rules lesson',
+          href: '/topics/firewall-rules-and-acls',
+          note: 'Open the focused firewall page if you want guest, trusted, and published-service policy expressed as readable allow and deny decisions.',
+        },
+        {
           label: 'Dedicated advanced DNS records lesson',
           href: '/topics/advanced-dns-records',
           note: 'Open the focused DNS page if you want A, AAAA, MX, TXT, SPF, DKIM, and DMARC explained without the rest of the survey around them.',
+        },
+        {
+          label: 'Dedicated troubleshooting workflow lesson',
+          href: '/topics/network-troubleshooting-workflow',
+          note: 'Open the troubleshooting page if you want a disciplined sequence for proving whether the fault is local, DNS-related, routing-related, or service-specific.',
         },
         {
           label: 'Jump back to wireless planning',
@@ -892,6 +927,12 @@ export const whyNetworkingIsImportantTopic: StudyTopic = {
     'networking-tools',
     'planning-a-basic-home-and-small-business-network',
     'advanced-dns-records',
+    'subnetting-and-cidr-in-practice',
+    'routing-basics',
+    'nat-pat-and-port-forwarding',
+    'firewall-rules-and-acls',
+    'wireless-security',
+    'network-troubleshooting-workflow',
     'intro-to-ip-addressing',
     'ipv4-addresses',
     'ipv6-addresses',

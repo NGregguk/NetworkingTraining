@@ -110,6 +110,11 @@ export const introToIpAddressingTopic: StudyTopic = {
           note: 'Open the focused IPv4 page if you want more depth on octets, subnet masks, address classes, and NAT.',
         },
         {
+          label: 'Dedicated subnetting and CIDR lesson',
+          href: '/topics/subnetting-and-cidr-in-practice',
+          note: 'Open the focused subnetting page if you want prefix lengths, usable ranges, and subnet splitting worked through step by step.',
+        },
+        {
           label: 'Public and private addressing',
           href: '#public-private-and-nat',
           note: 'Once you can read the structure, the next question is whether the address is private or internet-routable.',

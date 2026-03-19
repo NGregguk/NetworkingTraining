@@ -143,6 +143,11 @@ export const networkedHostsAndServicesTopic: StudyTopic = {
           href: '/topics/tcp-and-udp-protocols#ports-in-firewalls-and-access-rules',
           note: 'Many of these appliances make decisions based on the protocol and port combinations covered in the transport lesson.',
         },
+        {
+          label: 'Firewall rules and ACLs',
+          href: '/topics/firewall-rules-and-acls',
+          note: 'The firewall page makes it easier to read the allow and deny logic that often sits behind proxies, UTMs, and published services.',
+        },
       ],
     },
     {
@@ -382,8 +387,26 @@ export const networkedHostsAndServicesTopic: StudyTopic = {
       sectionId: 'internet-appliances-shape-flow-security-and-resilience',
     },
     {
+      id: 'load-balancer',
+      term: 'Load Balancer',
+      definition:
+        'A device or service that distributes incoming requests across multiple back-end servers or applications.',
+      importance:
+        'It explains why one service name may still represent several real systems behind the scenes.',
+      sectionId: 'internet-appliances-shape-flow-security-and-resilience',
+    },
+    {
+      id: 'spam-gateway',
+      term: 'Spam Gateway',
+      definition:
+        'A filtering system that inspects inbound email for spam, malware, or risky attachments before mail reaches the server.',
+      importance:
+        'It is a common hidden control point when email is delayed, quarantined, or rejected before delivery.',
+      sectionId: 'internet-appliances-shape-flow-security-and-resilience',
+    },
+    {
       id: 'utm',
-      term: 'Unified Threat Management',
+      term: 'UTM (Unified Threat Management)',
       definition:
         'A platform that combines multiple security functions such as routing, firewalling, VPN, and intrusion prevention in one appliance.',
       importance:
@@ -401,7 +424,7 @@ export const networkedHostsAndServicesTopic: StudyTopic = {
     },
     {
       id: 'iot',
-      term: 'Internet of Things',
+      term: 'IoT (Internet of Things)',
       definition:
         'The extension of network connectivity into devices such as sensors, plugs, locks, appliances, speakers, and lights.',
       importance:
@@ -447,6 +470,7 @@ export const networkedHostsAndServicesTopic: StudyTopic = {
   relatedTopicSlugs: [
     'common-network-protocols-and-ports',
     'dns-and-dhcp',
+    'firewall-rules-and-acls',
     'planning-a-basic-home-and-small-business-network',
   ],
 };

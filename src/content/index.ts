@@ -1,15 +1,21 @@
 import { dnsAndDhcpTopic } from './topics/dnsAndDhcp';
 import { commonNetworkProtocolsAndPortsTopic } from './topics/commonNetworkProtocolsAndPorts';
 import { advancedDnsRecordsTopic } from './topics/advancedDnsRecords';
+import { firewallRulesAndAclsTopic } from './topics/firewallRulesAndAcls';
+import { natPatAndPortForwardingTopic } from './topics/natPatAndPortForwarding';
+import { networkTroubleshootingWorkflowTopic } from './topics/networkTroubleshootingWorkflow';
 import { networkingHardwareTopic } from './topics/networkingHardware';
 import { networkedHostsAndServicesTopic } from './topics/networkedHostsAndServices';
 import { networkTypesAndInternetConnectionsTopic } from './topics/networkTypesAndInternetConnections';
 import { networkingToolsTopic } from './topics/networkingTools';
 import { planningHomeAndSmallBusinessNetworksTopic } from './topics/planningHomeAndSmallBusinessNetworks';
+import { routingBasicsTopic } from './topics/routingBasics';
+import { subnettingAndCidrTopic } from './topics/subnettingAndCidr';
 import { tcpAndUdpProtocolsTopic } from './topics/tcpAndUdpProtocols';
 import { ipv6AddressesTopic } from './topics/ipv6Addresses';
 import { ipv4AddressesTopic } from './topics/ipv4Addresses';
 import { introToIpAddressingTopic } from './topics/introToIpAddressing';
+import { wirelessSecurityTopic } from './topics/wirelessSecurity';
 import { wirelessNetworkingTechnologiesTopic } from './topics/wirelessNetworkingTechnologies';
 import { whyNetworkingIsImportantTopic } from './topics/whyNetworkingIsImportant';
 import type {
@@ -48,17 +54,23 @@ export const topics: StudyTopic[] = [
   whyNetworkingIsImportantTopic,
   introToIpAddressingTopic,
   ipv4AddressesTopic,
+  subnettingAndCidrTopic,
   ipv6AddressesTopic,
   dnsAndDhcpTopic,
+  routingBasicsTopic,
+  natPatAndPortForwardingTopic,
   tcpAndUdpProtocolsTopic,
   commonNetworkProtocolsAndPortsTopic,
+  firewallRulesAndAclsTopic,
   networkingHardwareTopic,
   networkTypesAndInternetConnectionsTopic,
   wirelessNetworkingTechnologiesTopic,
+  wirelessSecurityTopic,
   networkedHostsAndServicesTopic,
   networkingToolsTopic,
   planningHomeAndSmallBusinessNetworksTopic,
   advancedDnsRecordsTopic,
+  networkTroubleshootingWorkflowTopic,
 ];
 
 export const getTopicBySlug = (slug: string) =>

@@ -137,6 +137,16 @@ export const planningHomeAndSmallBusinessNetworksTopic: StudyTopic = {
           href: '/topics/wireless-networking-technologies#bands-and-channels-shape-range-congestion-and-throughput',
           note: 'Wireless planning improves when you reconnect channel and band choices to the actual spectrum tradeoffs.',
         },
+        {
+          label: 'Wireless security',
+          href: '/topics/wireless-security',
+          note: 'Use the security page if you want guest isolation, WPA2 or WPA3 choices, and WPS or hidden-SSID tradeoffs treated directly.',
+        },
+        {
+          label: 'Firewall rules and ACLs',
+          href: '/topics/firewall-rules-and-acls',
+          note: 'Use the firewall page if you want guest, IoT, and trusted-network policy read as concrete allow and deny logic.',
+        },
       ],
     },
     {
@@ -445,6 +455,8 @@ export const planningHomeAndSmallBusinessNetworksTopic: StudyTopic = {
   relatedTopicSlugs: [
     'network-types-and-internet-connections',
     'networking-tools',
+    'wireless-security',
+    'firewall-rules-and-acls',
     'advanced-dns-records',
   ],
 };

@@ -330,10 +330,24 @@ export const networkingToolsTopic: StudyTopic = {
           href: '/topics/planning-a-basic-home-and-small-business-network#optimize-for-coverage-capacity-and-priority',
           note: 'After you know the tools, the planning page shows where they fit in a real deployment and optimisation workflow.',
         },
+        {
+          label: 'Troubleshooting workflow',
+          href: '/topics/network-troubleshooting-workflow',
+          note: 'Open the workflow page if you want these tools placed inside a step-by-step diagnosis sequence rather than studied in isolation.',
+        },
       ],
     },
   ],
   glossary: [
+    {
+      id: 'rj45',
+      term: 'RJ45',
+      definition:
+        'The common eight-pin connector style used on Ethernet patch leads and wall ports.',
+      importance:
+        'It gives beginners a concrete name for the plug they are crimping, testing, or replacing.',
+      sectionId: 'cable-building-and-termination-tools-prepare-the-physical-layer',
+    },
     {
       id: 'crimper',
       term: 'Crimper',

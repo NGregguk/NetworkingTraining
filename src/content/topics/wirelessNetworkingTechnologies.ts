@@ -374,6 +374,11 @@ export const wirelessNetworkingTechnologiesTopic: StudyTopic = {
           href: '/topics/networked-hosts-and-services#iot-expands-visibility-but-raises-the-security-bar',
           note: 'Many IoT devices rely on these wireless technologies, so the host and service lesson is the next practical step.',
         },
+        {
+          label: 'Wireless security',
+          href: '/topics/wireless-security',
+          note: 'Use the wireless-security page if you want WPA2, WPA3, WPS, and guest or trusted SSID design covered directly.',
+        },
       ],
     },
   ],
@@ -472,6 +477,7 @@ export const wirelessNetworkingTechnologiesTopic: StudyTopic = {
   relatedTopicSlugs: [
     'network-types-and-internet-connections',
     'networking-tools',
+    'wireless-security',
     'planning-a-basic-home-and-small-business-network',
   ],
 };

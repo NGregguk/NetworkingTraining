@@ -360,7 +360,7 @@ export const networkTypesAndInternetConnectionsTopic: StudyTopic = {
   glossary: [
     {
       id: 'pan',
-      term: 'Personal Area Network',
+      term: 'PAN (Personal Area Network)',
       definition:
         'A very small network around one user, such as a phone communicating with nearby peripherals.',
       importance:
@@ -368,8 +368,35 @@ export const networkTypesAndInternetConnectionsTopic: StudyTopic = {
       sectionId: 'network-types-describe-scope-and-purpose',
     },
     {
+      id: 'lan',
+      term: 'LAN',
+      definition:
+        'Short for Local Area Network, the normal network inside one home, office, classroom, or similar site.',
+      importance:
+        'It is the baseline network scope most day-to-day switching, Wi-Fi, and client troubleshooting starts from.',
+      sectionId: 'network-types-describe-scope-and-purpose',
+    },
+    {
+      id: 'man',
+      term: 'MAN',
+      definition:
+        'Short for Metropolitan Area Network, a network scope that links sites across a town, city, or larger campus footprint.',
+      importance:
+        'It helps separate local building networks from broader regional connectivity.',
+      sectionId: 'network-types-describe-scope-and-purpose',
+    },
+    {
+      id: 'wan',
+      term: 'WAN',
+      definition:
+        'Short for Wide Area Network, a network that connects sites or services across large geographical distances.',
+      importance:
+        'It explains why internet access and multi-site links are treated differently from one-building LAN traffic.',
+      sectionId: 'network-types-describe-scope-and-purpose',
+    },
+    {
       id: 'wlan',
-      term: 'Wireless Local Area Network',
+      term: 'WLAN (Wireless Local Area Network)',
       definition:
         'A local area network where endpoint access is provided wirelessly.',
       importance:
@@ -395,8 +422,17 @@ export const networkTypesAndInternetConnectionsTopic: StudyTopic = {
       sectionId: 'wired-internet-access-trades-speed-symmetry-and-availability',
     },
     {
+      id: 'isp',
+      term: 'ISP',
+      definition:
+        'Short for Internet Service Provider, the company or organisation that supplies a site with internet access.',
+      importance:
+        'It is the outside provider that determines the service medium, support path, and handoff you start with.',
+      sectionId: 'wired-internet-access-trades-speed-symmetry-and-availability',
+    },
+    {
       id: 'wisp',
-      term: 'Wireless Internet Service Provider',
+      term: 'WISP (Wireless Internet Service Provider)',
       definition:
         'A provider that delivers internet over radio links from towers to customer receiver equipment, often in rural areas.',
       importance:
@@ -404,8 +440,17 @@ export const networkTypesAndInternetConnectionsTopic: StudyTopic = {
       sectionId: 'wireless-and-rural-internet-options-fill-coverage-gaps',
     },
     {
+      id: 'backhaul',
+      term: 'Backhaul',
+      definition:
+        'The upstream connection that links an access network, tower, or local system back into the wider provider network.',
+      importance:
+        'It explains why a wireless service can still depend on a strong wired or high-capacity upstream path behind the scenes.',
+      sectionId: 'wireless-and-rural-internet-options-fill-coverage-gaps',
+    },
+    {
       id: 'san',
-      term: 'Storage Area Network',
+      term: 'SAN (Storage Area Network)',
       definition:
         'A dedicated high-speed network that provides shared storage access to servers.',
       importance:

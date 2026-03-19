@@ -374,11 +374,20 @@ export const networkingHardwareTopic: StudyTopic = {
     },
     {
       id: 'ont',
-      term: 'Optical Network Terminal',
+      term: 'ONT (Optical Network Terminal)',
       definition:
         'A fibre handoff device that converts optical signalling into the electrical Ethernet-style connection used by local network gear.',
       importance:
-        'It is the fibre-era equivalent of the conversion role a modem plays on older media.',
+        'It is one of the most common provider-edge acronyms learners will see on fibre services.',
+      sectionId: 'provider-edge-and-gateway-devices',
+    },
+    {
+      id: 'edge-equipment',
+      term: 'Edge Equipment',
+      definition:
+        'The devices at the boundary between the local network and the provider or wider internet, such as a modem, ONT, router, or firewall depending on the design.',
+      importance:
+        'It helps you read the internet-facing side of a topology as a chain of roles instead of one vague "internet box".',
       sectionId: 'provider-edge-and-gateway-devices',
     },
     {
@@ -401,7 +410,7 @@ export const networkingHardwareTopic: StudyTopic = {
     },
     {
       id: 'wireless-access-point',
-      term: 'Wireless Access Point',
+      term: 'Access Point (AP)',
       definition:
         'A device that bridges wireless clients onto the wired Ethernet network.',
       importance:
