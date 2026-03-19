@@ -3,22 +3,32 @@ import type { StudyTopic } from '../content/schema';
 
 type TopicCardProps = {
   topic: StudyTopic;
+  showModule?: boolean;
 };
 
-export default function TopicCard({ topic }: TopicCardProps) {
+export default function TopicCard({
+  topic,
+  showModule = true,
+}: TopicCardProps) {
   return (
-    <article className="card topic-card">
+    <article
+      className={
+        showModule ? 'card topic-card' : 'card topic-card topic-card-no-context'
+      }
+    >
       <div className="topic-card-head">
-        <p className="eyebrow">{topic.module.title}</p>
+        {showModule ? (
+          <p className="eyebrow topic-card-context">{topic.module.title}</p>
+        ) : null}
         <span className="badge">{topic.level}</span>
       </div>
-      <h3>{topic.title}</h3>
-      <p className="card-copy">{topic.summary}</p>
-      <div className="meta-row">
+      <h3 className="topic-card-title">{topic.title}</h3>
+      <div className="meta-row topic-card-meta">
         <span>{topic.estimatedStudyTime}</span>
         <span>{topic.sections.length} sections</span>
       </div>
-      <div className="tag-row">
+      <p className="card-copy topic-card-summary">{topic.summary}</p>
+      <div className="tag-row topic-card-tags">
         {topic.tags.map((tag) => (
           <span key={tag} className="chip">
             {tag}

@@ -16,15 +16,14 @@ export default function TopicsPage() {
       {modules.map((module) => (
         <section key={module.id}>
           <div className="section-title-row">
-            <div>
-              <p className="eyebrow">Module</p>
+            <div className="section-heading">
               <h2>{module.title}</h2>
             </div>
             <p className="section-caption">{module.summary}</p>
           </div>
           <div className="card-grid topics-grid">
             {module.topics.map((topic) => (
-              <TopicCard key={topic.slug} topic={topic} />
+              <TopicCard key={topic.slug} topic={topic} showModule={false} />
             ))}
           </div>
         </section>

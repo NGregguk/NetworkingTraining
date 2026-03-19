@@ -60,7 +60,7 @@ export default function DashboardPage() {
 
       <section>
         <div className="section-title-row">
-          <div>
+          <div className="section-heading">
             <p className="eyebrow">Featured Topics</p>
             <h2>Start with these pages</h2>
             <p className="section-caption">

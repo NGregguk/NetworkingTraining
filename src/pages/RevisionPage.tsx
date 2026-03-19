@@ -82,7 +82,7 @@ export default function RevisionPage() {
             className="card revision-card"
           >
             <div className="section-title-row">
-              <div>
+              <div className="section-heading">
                 <p className="eyebrow">{topic.module.title}</p>
                 <h2>{topic.title}</h2>
               </div>

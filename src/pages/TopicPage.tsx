@@ -101,7 +101,7 @@ export default function TopicPage() {
 
         <section className="card">
           <div className="section-title-row">
-            <div>
+            <div className="section-heading">
               <p className="eyebrow">Learning Objectives</p>
               <h2>What this page should leave you able to do</h2>
             </div>
@@ -121,7 +121,7 @@ export default function TopicPage() {
 
         <section className="card">
           <div className="section-title-row">
-            <div>
+            <div className="section-heading">
               <p className="eyebrow">End-Of-Topic Reinforcement</p>
               <h2>Quick review before you move on</h2>
             </div>

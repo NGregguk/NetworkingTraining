@@ -46,8 +46,7 @@ export default function GlossaryPage() {
               className="glossary-group"
             >
               <div className="section-title-row">
-                <div>
-                  <p className="eyebrow">Letter</p>
+                <div className="section-heading">
                   <h2>{letter}</h2>
                 </div>
               </div>

@@ -215,6 +215,9 @@ a {
 .hero-note,
 .term-note,
 .link-list p {
+  margin: 0;
+  font-size: 0.97rem;
+  line-height: 1.65;
   color: var(--text-soft);
 }
 
@@ -441,6 +444,11 @@ a {
   padding: 1.5rem;
 }
 
+.page-hero {
+  display: grid;
+  gap: 0.85rem;
+}
+
 .hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.55fr) minmax(300px, 0.9fr);
@@ -449,6 +457,8 @@ a {
 
 .hero-card {
   position: relative;
+  display: grid;
+  gap: 1rem;
   overflow: hidden;
   padding: 2rem;
   background: var(--hero-bg);
@@ -535,24 +545,24 @@ h3,
 h4 {
   margin: 0;
   font-family: var(--font-display);
-  line-height: 1.05;
-  letter-spacing: -0.04em;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
 }
 
 h1 {
-  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-size: clamp(2.25rem, 4.8vw, 3.6rem);
 }
 
 h2 {
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-size: clamp(1.4rem, 2.8vw, 2rem);
 }
 
 h3 {
-  font-size: 1.15rem;
+  font-size: clamp(1.08rem, 1.4vw, 1.3rem);
 }
 
 h4 {
-  font-size: 1rem;
+  font-size: 0.98rem;
 }
 
 p {
@@ -561,29 +571,51 @@ p {
 
 .lede {
   margin: 0;
-  font-size: 1.08rem;
+  max-width: 62ch;
+  font-size: 1.02rem;
+  line-height: 1.72;
 }
 
 .eyebrow,
-.badge,
-.chip,
 .reference-label,
-.footer-title,
-.stat-label {
+.footer-title {
   font-family: var(--font-display);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.badge,
+.chip,
+.stat-label {
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .eyebrow {
-  margin: 0 0 0.8rem;
+  margin: 0 0 0.65rem;
   color: var(--accent);
 }
 
 .hero-side {
   display: grid;
   gap: 1rem;
+}
+
+.hero-side h2 {
+  font-size: clamp(1.3rem, 2vw, 1.65rem);
+}
+
+.hero-card .lede,
+.page-hero .lede {
+  max-width: 58ch;
+}
+
+.hero-note {
+  max-width: 56ch;
 }
 
 .stats-grid {
@@ -607,8 +639,7 @@ p {
 .cta-row,
 .meta-row,
 .tag-row,
-.topic-card-head,
-.section-title-row {
+.topic-card-head {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -697,13 +728,14 @@ p {
 .section-panel,
 .reference-card {
   display: grid;
-  gap: 0.9rem;
+  gap: 0.75rem;
 }
 
 .topic-card {
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  gap: 0.85rem;
   height: 100%;
 }
 
@@ -719,6 +751,27 @@ p {
   margin-bottom: 0;
 }
 
+.topic-card-no-context > .topic-card-head {
+  justify-content: flex-end;
+}
+
+.topic-card-context {
+  color: var(--text-soft);
+}
+
+.topic-card-title {
+  line-height: 1.2;
+}
+
+.topic-card-summary {
+  max-width: 34ch;
+}
+
+.topic-card-tags {
+  gap: 0.45rem;
+  align-items: flex-start;
+}
+
 .topic-card > .topic-card-head .badge {
   margin-left: auto;
   flex-shrink: 0;
@@ -731,14 +784,14 @@ p {
   justify-content: space-between;
   gap: 0.8rem;
   margin-top: auto;
-  padding: 0.85rem 1rem;
+  padding: 0.8rem 0.95rem;
   border: 1px solid var(--accent-pop-border);
   border-radius: 1rem;
   background:
     linear-gradient(135deg, rgba(100, 127, 82, 0.22), rgba(100, 127, 82, 0.08));
   color: var(--accent-pop-strong);
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: none;
   transition:
     transform 180ms ease,
@@ -772,46 +825,74 @@ p {
 }
 
 .badge {
-  padding: 0.35rem 0.65rem;
+  padding: 0.3rem 0.62rem;
   border-radius: 999px;
-  color: #ffffff;
-  border: 1px solid var(--accent-pop-border);
-  background: linear-gradient(135deg, var(--accent-pop) 0%, var(--accent-pop-strong) 100%);
+  color: var(--accent-pop-strong);
+  border: 1px solid rgba(100, 127, 82, 0.22);
+  background: rgba(100, 127, 82, 0.12);
+}
+
+.topic-card-link span:last-child {
+  opacity: 0.72;
 }
 
 :root[data-theme='dark'] .badge {
-  border: 1px solid rgba(0, 122, 204, 0.22);
-  background: rgba(0, 122, 204, 0.14);
+  border: 1px solid rgba(0, 122, 204, 0.18);
+  background: rgba(0, 122, 204, 0.1);
   color: var(--accent-strong);
 }
 
 .chip {
-  padding: 0.4rem 0.7rem;
+  padding: 0.28rem 0.58rem;
   border-radius: 999px;
   color: var(--accent-pop-strong);
-  border: 1px solid rgba(100, 127, 82, 0.2);
-  background: var(--accent-pop-soft);
+  border: 1px solid rgba(100, 127, 82, 0.16);
+  background: rgba(100, 127, 82, 0.1);
 }
 
 :root[data-theme='dark'] .chip {
   color: #7fcfff;
-  background: rgba(0, 122, 204, 0.12);
-  border: 1px solid rgba(0, 122, 204, 0.2);
+  background: rgba(0, 122, 204, 0.09);
+  border: 1px solid rgba(0, 122, 204, 0.16);
 }
 
 .meta-row {
   color: var(--text-soft);
-  font-size: 0.95rem;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  gap: 0.45rem 0.85rem;
+}
+
+.meta-row span {
+  display: inline-flex;
+  align-items: center;
 }
 
 .section-title-row {
-  justify-content: space-between;
-  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.85rem 1.25rem;
+  margin-bottom: 0.9rem;
+}
+
+.section-title-row > * {
+  min-width: 0;
+}
+
+.section-heading {
+  display: grid;
+  gap: 0.35rem;
 }
 
 .section-caption {
+  flex: 1 1 24rem;
   max-width: 42rem;
   margin: 0;
+}
+
+.section-title-row > .text-link {
+  margin-left: auto;
 }
 
 .spotlight-card {
@@ -874,12 +955,12 @@ p {
 
 .section-card {
   display: grid;
-  gap: 1.35rem;
+  gap: 1.2rem;
 }
 
 .section-header {
   display: grid;
-  gap: 0.3rem;
+  gap: 0.4rem;
 }
 
 .section-grid {
@@ -889,10 +970,14 @@ p {
 }
 
 .section-panel {
-  padding: 1.1rem;
+  padding: 1rem 1.05rem;
   border-radius: 1.25rem;
   background: var(--panel-bg);
   border: 1px solid var(--border);
+}
+
+.section-panel > * {
+  margin: 0;
 }
 
 :root[data-theme='dark'] .section-panel,
@@ -1247,10 +1332,14 @@ p {
 }
 
 .reference-card {
-  padding: 1rem;
+  padding: 0.95rem;
   border-radius: 1.2rem;
   background: var(--reference-bg);
   border: 1px solid var(--border);
+}
+
+.reference-card > * {
+  margin: 0;
 }
 
 .search-layer {
@@ -2015,6 +2104,14 @@ p {
   .section-title-row,
   .topic-card-head {
     align-items: flex-start;
+  }
+
+  .section-title-row > .text-link {
+    margin-left: 0;
+  }
+
+  .section-caption {
+    flex-basis: 100%;
   }
 
   .site-header {
