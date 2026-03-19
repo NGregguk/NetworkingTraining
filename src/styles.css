@@ -794,9 +794,9 @@ p {
 }
 
 :root[data-theme='dark'] .chip {
-  color: var(--accent-warm);
-  background: var(--accent-warm-soft);
-  border: 1px solid rgba(206, 145, 120, 0.16);
+  color: #7fcfff;
+  background: rgba(0, 122, 204, 0.12);
+  border: 1px solid rgba(0, 122, 204, 0.2);
 }
 
 .meta-row {
