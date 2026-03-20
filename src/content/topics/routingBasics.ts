@@ -58,6 +58,17 @@ export const routingBasicsTopic: StudyTopic = {
         'Local traffic stays local, while remote traffic is sent to a router or gateway.',
         'Address, mask, and gateway all work together to make this decision possible.',
       ],
+      imagePlaceholder: {
+        title: 'Same-subnet traffic versus off-subnet traffic',
+        label: 'Decision flow',
+        description:
+          'A visual split between local and remote destinations would make the first routing decision much easier for beginners to internalise.',
+        callouts: [
+          'Show one device talking directly to a local printer on the same subnet and using the gateway for a remote subnet.',
+          'Highlight the client check that uses the IP address and mask to decide local versus remote.',
+          'Make it visually clear that not every packet goes to the router first.',
+        ],
+      },
       connections: [
         {
           label: 'Subnetting and CIDR',
@@ -103,6 +114,17 @@ export const routingBasicsTopic: StudyTopic = {
         'The route table stores the network paths and next hops.',
         'The default route is the fallback, not the whole routing story.',
       ],
+      imagePlaceholder: {
+        title: 'Client gateway and route-table fallback logic',
+        label: 'Flow diagram',
+        description:
+          'This section would benefit from a small route-selection visual instead of leaving the default route as an abstract concept.',
+        callouts: [
+          'Show a client using the default gateway when no more specific local match exists.',
+          'Include a small route-table snippet with a directly connected network and a default route.',
+          'Use arrows to show that a more specific route wins before the catch-all path is used.',
+        ],
+      },
       referenceItems: [
         {
           label: 'Default route',
@@ -165,6 +187,17 @@ export const routingBasicsTopic: StudyTopic = {
         'More specific prefixes should take precedence over broader ones.',
         'This is why subnetting knowledge directly improves routing knowledge.',
       ],
+      imagePlaceholder: {
+        title: 'Longest-prefix match in practice',
+        label: 'Route comparison',
+        description:
+          'A comparison visual would help learners see why the router prefers the more specific network rather than the broadest one.',
+        callouts: [
+          'Show two routes, such as /16 and /24, alongside one destination IP.',
+          'Highlight the chosen route and state that the longer prefix wins.',
+          'Keep the example tight so the takeaway is route specificity rather than platform syntax.',
+        ],
+      },
       connections: [
         {
           label: 'Subnetting and CIDR',
@@ -210,6 +243,17 @@ export const routingBasicsTopic: StudyTopic = {
         'The gateway and route table then determine the forwarding path.',
         'Routing and NAT often work together, but they are not the same function.',
       ],
+      imagePlaceholder: {
+        title: 'End-to-end packet path across a small network',
+        label: 'Packet path diagram',
+        description:
+          'A left-to-right packet journey would tie several lessons together and make the section much easier to scan.',
+        callouts: [
+          'Show client -> default gateway -> router decision -> edge -> remote network -> return path.',
+          'Optionally annotate where NAT can appear at the edge without implying it is the same as routing.',
+          'Use short labels for local subnet, next hop, and remote destination.',
+        ],
+      },
       connections: [
         {
           label: 'Networking hardware',

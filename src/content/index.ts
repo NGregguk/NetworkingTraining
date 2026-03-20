@@ -305,6 +305,14 @@ const searchIndex: SearchIndexDocument[] = topics.flatMap((topic) => {
           item.value,
           item.detail,
         ]) ?? []),
+        ...(section.imagePlaceholder
+          ? [
+              section.imagePlaceholder.title,
+              section.imagePlaceholder.label,
+              section.imagePlaceholder.description,
+              ...section.imagePlaceholder.callouts,
+            ]
+          : []),
         ...(section.connections?.flatMap((connection) => [
           connection.label,
           connection.note,

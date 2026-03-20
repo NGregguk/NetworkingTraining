@@ -10,6 +10,13 @@ export type ReferenceItem = {
   detail: string;
 };
 
+export type SectionImagePlaceholder = {
+  title: string;
+  label: string;
+  description: string;
+  callouts: string[];
+};
+
 export type StudyExample =
   | string
   | {
@@ -63,6 +70,7 @@ export type StudySection = {
   examples: StudyExample[];
   misconceptions: string[];
   recap: string[];
+  imagePlaceholder?: SectionImagePlaceholder;
   referenceItems?: ReferenceItem[];
   interactive?: SectionInteractive;
   connections?: StudyLink[];

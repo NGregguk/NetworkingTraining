@@ -1270,6 +1270,88 @@ p {
   margin: 0;
 }
 
+.image-placeholder-card {
+  position: relative;
+  display: grid;
+  gap: 0.9rem;
+  padding: 1.1rem 1.15rem;
+  border: 1px dashed var(--selection-border);
+  border-radius: 1.25rem;
+  background:
+    linear-gradient(135deg, rgba(182, 206, 180, 0.14), transparent 54%),
+    var(--reference-bg);
+  overflow: hidden;
+}
+
+.image-placeholder-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 1.2rem 1.2rem;
+  opacity: 0.28;
+  pointer-events: none;
+}
+
+.image-placeholder-head,
+.image-placeholder-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.image-placeholder-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem 0.8rem;
+}
+
+.image-placeholder-badge {
+  white-space: nowrap;
+}
+
+.image-placeholder-frame {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  gap: 0.35rem;
+  min-height: 9rem;
+  padding: 1rem;
+  border: 1px dashed var(--border);
+  border-radius: 1rem;
+  background:
+    linear-gradient(180deg, rgba(240, 240, 240, 0.55), rgba(217, 233, 207, 0.35));
+  text-align: center;
+}
+
+.image-placeholder-frame span:first-child {
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.image-placeholder-frame span:last-child {
+  color: var(--text-soft);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.image-placeholder-copy {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.image-placeholder-copy > * {
+  margin: 0;
+}
+
 :root[data-theme='dark'] .section-panel,
 :root[data-theme='dark'] .reference-card,
 :root[data-theme='dark'] .interactive-result-card,
@@ -1278,6 +1360,25 @@ p {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent 56%),
     var(--panel-bg);
+}
+
+:root[data-theme='dark'] .image-placeholder-card {
+  border-color: rgba(0, 122, 204, 0.28);
+  background:
+    linear-gradient(180deg, rgba(0, 122, 204, 0.12), transparent 58%),
+    var(--reference-bg);
+}
+
+:root[data-theme='dark'] .image-placeholder-card::after {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+:root[data-theme='dark'] .image-placeholder-frame {
+  border-color: rgba(0, 122, 204, 0.24);
+  background:
+    linear-gradient(180deg, rgba(0, 122, 204, 0.08), rgba(45, 45, 48, 0.92));
 }
 
 .interactive-panel {
@@ -2544,6 +2645,14 @@ p {
   .track-section-meta {
     margin-left: 0;
     justify-content: flex-start;
+  }
+
+  .image-placeholder-head {
+    align-items: flex-start;
+  }
+
+  .image-placeholder-frame {
+    min-height: 7.5rem;
   }
 
   .site-header {

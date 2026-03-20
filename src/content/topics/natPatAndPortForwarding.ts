@@ -64,6 +64,17 @@ export const natPatAndPortForwardingTopic: StudyTopic = {
         'It is an address-rewrite function, not a replacement for routing.',
         'This is one of the reasons a small network can host many devices behind one public IPv4 presence.',
       ],
+      imagePlaceholder: {
+        title: 'Private address translated to a public edge address',
+        label: 'Address flow',
+        description:
+          'A simple outbound flow would make NAT feel much less like a black box for beginners.',
+        callouts: [
+          'Show a client with a private IPv4 address sending traffic to the edge device and then out with the public IPv4 address.',
+          'Label the translation step separately from the routing path.',
+          'Keep the before-and-after addresses visible on the same flow.',
+        ],
+      },
       connections: [
         {
           label: 'Intro to IP addressing',
@@ -114,6 +125,17 @@ export const natPatAndPortForwardingTopic: StudyTopic = {
         'It uses address and port state together so many internal sessions can share one public IP.',
         'The translation table is what keeps each reply aligned to the correct internal host.',
       ],
+      imagePlaceholder: {
+        title: 'Many internal sessions sharing one public IP through PAT',
+        label: 'Translation table view',
+        description:
+          'This is the clearest place for a multi-session visual because the whole idea depends on seeing several conversations at once.',
+        callouts: [
+          'Show two or three internal clients using the same public IP but different translated source ports.',
+          'Include a small translation table that maps internal sockets to public-facing sockets.',
+          'Use the same remote service on the outside to show why the port distinction matters.',
+        ],
+      },
       referenceItems: [
         {
           label: 'PAT',
@@ -176,6 +198,17 @@ export const natPatAndPortForwardingTopic: StudyTopic = {
         'It maps one public-facing port to one internal host and service.',
         'The forward, the host address, and the service listener all have to agree for it to work.',
       ],
+      imagePlaceholder: {
+        title: 'Inbound port forward from public service to internal host',
+        label: 'Inbound mapping',
+        description:
+          'A public-to-private mapping diagram would make this lesson much quicker to understand than text alone.',
+        callouts: [
+          'Show an external client reaching the public IP on one port and the rule forwarding to a private host and service port.',
+          'Label the internal host as needing a stable address and a listening service.',
+          'Make it explicit that one public-facing rule points to one chosen target at a time.',
+        ],
+      },
       connections: [
         {
           label: 'Firewall rules and ACLs',
@@ -220,6 +253,17 @@ export const natPatAndPortForwardingTopic: StudyTopic = {
         'Double NAT and CGNAT are common reasons simple inbound publishing fails.',
         'Good troubleshooting improves when you ask which edge function is actually failing.',
       ],
+      imagePlaceholder: {
+        title: 'Separate routing, NAT, and firewall roles at the edge',
+        label: 'Function map',
+        description:
+          'A layered edge diagram would help stop learners from treating all edge behaviour as one vague router function.',
+        callouts: [
+          'Show the same appliance with separate labels for routing, NAT or PAT, and firewall policy.',
+          'Include an optional second upstream translating device to illustrate double NAT or CGNAT.',
+          'Use short notes to distinguish path choice, address rewriting, and allow or deny policy.',
+        ],
+      },
       connections: [
         {
           label: 'Routing basics',

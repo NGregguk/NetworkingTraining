@@ -34,6 +34,40 @@ function renderExample(example: StudyExample, index: number) {
   );
 }
 
+function renderImagePlaceholder(section: StudySection) {
+  if (!section.imagePlaceholder) {
+    return null;
+  }
+
+  const placeholder = section.imagePlaceholder;
+
+  return (
+    <article className="image-placeholder-card">
+      <div className="image-placeholder-head">
+        <p className="eyebrow">Suggested Image</p>
+        <span className="badge image-placeholder-badge">{placeholder.label}</span>
+      </div>
+      <div className="image-placeholder-frame" aria-hidden="true">
+        <span>Image placeholder</span>
+        <span>{placeholder.label}</span>
+      </div>
+      <div className="image-placeholder-copy">
+        <h3>{placeholder.title}</h3>
+        <p>
+          <InlineFormattedText text={placeholder.description} />
+        </p>
+      </div>
+      <ul className="detail-list">
+        {placeholder.callouts.map((item) => (
+          <li key={item}>
+            <InlineFormattedText text={item} />
+          </li>
+        ))}
+      </ul>
+    </article>
+  );
+}
+
 export default function TopicSectionCard({
   section,
 }: TopicSectionCardProps) {
@@ -47,6 +81,8 @@ export default function TopicSectionCard({
       <p className="lede">
         <InlineFormattedText text={section.overview} />
       </p>
+
+      {renderImagePlaceholder(section)}
 
       <div className="section-grid">
         <article className="section-panel">

@@ -64,6 +64,17 @@ export const networkingHardwareTopic: StudyTopic = {
         'The router is the gateway between the inside network and outside networks such as the internet.',
         'Small devices may combine several hardware roles, but those roles are still distinct when you troubleshoot them.',
       ],
+      imagePlaceholder: {
+        title: 'Provider handoff to gateway chain',
+        label: 'Topology sketch',
+        description:
+          'A simple left-to-right visual would make the provider edge much easier to grasp than text alone.',
+        callouts: [
+          'Show provider cloud -> modem or ONT -> router -> switch -> local devices.',
+          'Label the modem or ONT as the conversion step and the router as the WAN-to-LAN boundary.',
+          'Highlight where the local network actually begins after the provider handoff is translated.',
+        ],
+      },
       referenceItems: [
         {
           label: 'Modem',
@@ -126,6 +137,17 @@ export const networkingHardwareTopic: StudyTopic = {
         'Access points bridge wireless users to the wired network.',
         'Firewalls enforce policy, patch panels organise cabling, and NICs give endpoints a real network interface.',
       ],
+      imagePlaceholder: {
+        title: 'Access-layer hardware roles in one room or rack',
+        label: 'Rack diagram',
+        description:
+          'This section would benefit from a labelled visual showing how the active and passive parts of the local network relate to each other.',
+        callouts: [
+          'Show router uplink into a switch, patch panel below it, wall runs, access point, and endpoint NICs.',
+          'Call out which devices forward traffic, which bridge wireless users, and which only organise cabling.',
+          'Use arrows to show a wireless client joining the wired LAN through the access point.',
+        ],
+      },
       referenceItems: [
         {
           label: 'Switch',
@@ -193,6 +215,17 @@ export const networkingHardwareTopic: StudyTopic = {
         'Switches often supply PoE, but injectors can add power when the switch cannot.',
         'Matching the endpoint requirement to the available PoE standard is part of correct deployment.',
       ],
+      imagePlaceholder: {
+        title: 'Power over Ethernet path and injector placement',
+        label: 'Power flow diagram',
+        description:
+          'A compact diagram would help learners see that PoE is still normal Ethernet traffic with power added on the same run.',
+        callouts: [
+          'Show both options: PoE-capable switch directly to endpoint, and non-PoE switch with an injector inserted in the path.',
+          'Label the cable as carrying both data and power to the access point, phone, or camera.',
+          'Include a note that the endpoint power requirement must match the available PoE standard.',
+        ],
+      },
       referenceItems: [
         { label: 'PoE', value: '802.3af', detail: 'Around 12.95 watts to the device.' },
         { label: 'PoE+', value: '802.3at', detail: 'Around 25.5 watts to the device.' },
@@ -348,6 +381,17 @@ export const networkingHardwareTopic: StudyTopic = {
         'Home networks often combine roles, while business networks usually separate them.',
         'Structured patching, documented switch ports, and clear PoE planning make larger layouts maintainable.',
       ],
+      imagePlaceholder: {
+        title: 'Home network versus small-business topology',
+        label: 'Comparison panel',
+        description:
+          'This is one of the clearest places for a side-by-side visual because the lesson is really about comparing compressed and separated hardware roles.',
+        callouts: [
+          'Put a simple home layout on the left with an all-in-one router and clients.',
+          'Put a small-business layout on the right with ONT or modem, router, switch, patch panel, and separate access points.',
+          'Use callouts to show which functions are combined at home and which are split out in a business environment.',
+        ],
+      },
       connections: [
         {
           label: 'Network types and VLANs',

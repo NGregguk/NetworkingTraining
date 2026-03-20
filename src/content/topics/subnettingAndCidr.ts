@@ -58,6 +58,17 @@ export const subnettingAndCidrTopic: StudyTopic = {
         'It is about manageability, separation, and growth as much as it is about arithmetic.',
         'The design question is always a balance between number of subnets and hosts per subnet.',
       ],
+      imagePlaceholder: {
+        title: 'One large network split into smaller logical segments',
+        label: 'Concept diagram',
+        description:
+          'A visual would help beginners connect subnetting to actual network design rather than seeing it as pure arithmetic.',
+        callouts: [
+          'Start with one large flat network and then show it split into staff, guest, server, and IoT segments.',
+          'Use short notes to show reduced broadcast scope and cleaner separation.',
+          'Keep the visual high-level so the lesson focus stays on why subnetting exists before the maths begins.',
+        ],
+      },
       connections: [
         {
           label: 'IPv4 addresses lesson',
@@ -103,6 +114,17 @@ export const subnettingAndCidrTopic: StudyTopic = {
         'The prefix tells you how many bits are reserved for the network.',
         'Learning the common /24 to /30 patterns removes a lot of subnetting friction.',
       ],
+      imagePlaceholder: {
+        title: 'CIDR prefix to subnet-mask boundary view',
+        label: 'Bit boundary diagram',
+        description:
+          'This section would benefit from a visual that shows the same boundary in slash notation, binary, and dotted-decimal form.',
+        callouts: [
+          'Show a 32-bit IPv4 row with the network bits shaded differently from the host bits.',
+          'Map examples such as /24 and /26 to both binary mask patterns and dotted-decimal masks.',
+          'Make the final-octet progression visually obvious for /25 through /30.',
+        ],
+      },
       referenceItems: [
         {
           label: 'CIDR',
@@ -170,6 +192,17 @@ export const subnettingAndCidrTopic: StudyTopic = {
         'Block size is one of the quickest ways to locate the right subnet boundary.',
         'This is the calculation that makes static addressing and DHCP planning much safer.',
       ],
+      imagePlaceholder: {
+        title: 'Locate the network, broadcast, and usable range inside a block',
+        label: 'Worked example',
+        description:
+          'A marked-up range graphic would make the boundary maths much quicker to absorb than text alone.',
+        callouts: [
+          'Use one /26 example and draw the repeating ranges as blocks of 64.',
+          'Highlight the network address at the start, the broadcast address at the end, and the usable host range in between.',
+          'Mark one sample host address inside the block so the learner can see how the correct subnet is chosen.',
+        ],
+      },
       interactive: {
         type: 'ipv4-lab',
         title: 'Practise reading a subnet boundary',
@@ -223,6 +256,17 @@ export const subnettingAndCidrTopic: StudyTopic = {
         'Subnetting choices should be driven by real design needs, not by arithmetic alone.',
         'The best subnet is the one that fits the role, the host count, and the expected growth.',
       ],
+      imagePlaceholder: {
+        title: 'Split a /24 into smaller practical subnets',
+        label: 'Allocation diagram',
+        description:
+          'This is a good place for a simple planning graphic because it links the prefix choice directly to real network roles.',
+        callouts: [
+          'Show a /24 block divided into four /26 ranges with staff, guest, server, and IoT labels.',
+          'Keep the address ranges visible on each segment so the design choice stays concrete.',
+          'Add a short note that smaller prefixes create more subnets but reduce host capacity in each one.',
+        ],
+      },
       connections: [
         {
           label: 'Network types and VLANs',
