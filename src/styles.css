@@ -762,6 +762,7 @@ p {
 }
 
 .topic-card-title {
+  font-size: clamp(1.08rem, 1.4vw, 1.3rem);
   line-height: 1.2;
 }
 
@@ -897,6 +898,165 @@ p {
   margin-left: auto;
 }
 
+.track-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.track-filter-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.55rem;
+  padding: 0.62rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--panel-bg);
+  color: var(--text-soft);
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.track-filter-link:hover,
+.track-filter-link:focus-visible {
+  transform: translateY(-1px);
+  border-color: var(--selection-border);
+  color: var(--text);
+}
+
+.track-filter-link-active {
+  border-color: var(--accent-pop-border);
+  background:
+    linear-gradient(135deg, rgba(217, 233, 207, 0.92), rgba(240, 240, 240, 0.96));
+  color: var(--accent-pop-strong);
+  box-shadow: 0 10px 20px rgba(100, 127, 82, 0.1);
+}
+
+:root[data-theme='dark'] .track-filter-link {
+  background: #1f1f1f;
+}
+
+:root[data-theme='dark'] .track-filter-link-active {
+  border-color: rgba(0, 122, 204, 0.28);
+  background:
+    linear-gradient(180deg, rgba(0, 122, 204, 0.14), rgba(45, 45, 48, 0.96) 76%);
+  color: #ffffff;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.22);
+}
+
+.track-overview-grid,
+.module-stack,
+.track-section,
+.track-topic-stack,
+.track-overview-card,
+.track-overview-block {
+  display: grid;
+}
+
+.track-overview-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.track-overview-card,
+.track-overview-block,
+.track-section {
+  gap: 1rem;
+}
+
+.module-stack,
+.track-topic-stack {
+  gap: 1.5rem;
+}
+
+.track-overview-head {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.track-overview-meta,
+.track-snapshot-list {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.track-overview-meta {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.track-overview-meta span,
+.track-snapshot-item {
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--reference-bg);
+}
+
+.track-overview-meta span {
+  color: var(--text-soft);
+  font-family: var(--font-display);
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.track-overview-block {
+  padding: 0.95rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--reference-bg);
+}
+
+.track-preview-links {
+  gap: 0.75rem;
+}
+
+.track-preview-links strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--text);
+  font-family: var(--font-display);
+}
+
+.track-snapshot-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0;
+}
+
+.track-snapshot-item strong {
+  color: var(--text);
+  font-family: var(--font-display);
+}
+
+.track-snapshot-item span {
+  color: var(--text-soft);
+  font-size: 0.92rem;
+  text-align: right;
+}
+
+.track-section-meta {
+  margin-left: auto;
+  justify-content: flex-end;
+}
+
+.track-section-meta span {
+  padding: 0.28rem 0.58rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--reference-bg);
+}
+
 .spotlight-card {
   background: var(--spotlight-bg);
 }
@@ -950,6 +1110,14 @@ p {
 
 .topic-hero {
   gap: 1rem;
+}
+
+.topic-hero-meta {
+  gap: 0.5rem 0.85rem;
+}
+
+.topic-hero-meta span:first-child {
+  color: var(--text);
 }
 
 .sticky-card {
@@ -1894,6 +2062,26 @@ p {
   margin: 0;
 }
 
+.term-card-head {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.term-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.7rem;
+}
+
+.term-source-link {
+  font-size: 0.9rem;
+}
+
+.glossary-track-badge {
+  white-space: nowrap;
+}
+
 :root[data-theme='dark'] .glossary-alphabet {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 42%),
@@ -2248,6 +2436,10 @@ p {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .track-overview-meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .search-trigger-shortcut {
     display: none;
   }
@@ -2326,6 +2518,32 @@ p {
 
   .section-caption {
     flex-basis: 100%;
+  }
+
+  .track-filter-link {
+    flex: 1 1 calc(50% - 0.3rem);
+  }
+
+  .track-overview-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .track-snapshot-item,
+  .term-card-meta {
+    align-items: flex-start;
+  }
+
+  .track-snapshot-item {
+    flex-direction: column;
+  }
+
+  .track-snapshot-item span {
+    text-align: left;
+  }
+
+  .track-section-meta {
+    margin-left: 0;
+    justify-content: flex-start;
   }
 
   .site-header {

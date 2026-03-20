@@ -83,11 +83,11 @@ export default function TopicPage() {
           <p className="eyebrow">Study Shortcuts</p>
           <ul className="link-list compact-links">
             <li>
-              <Link to="/glossary">Open glossary</Link>
+              <Link to={`/glossary?track=${topic.trackId}`}>Open glossary</Link>
               <p>Reinforce definitions while reading.</p>
             </li>
             <li>
-              <Link to="/revision">Open revision pack</Link>
+              <Link to={`/revision?track=${topic.trackId}`}>Open revision pack</Link>
               <p>Condensed recall cues and self-check prompts.</p>
             </li>
           </ul>
@@ -96,11 +96,12 @@ export default function TopicPage() {
 
       <div className="topic-main">
         <section className="hero-card topic-hero">
-          <p className="eyebrow">{topic.module.title}</p>
+          <p className="eyebrow">{topic.track.title}</p>
           <h1>{topic.title}</h1>
           <p className="lede">{topic.summary}</p>
           <p className="hero-note">{topic.heroNote}</p>
-          <div className="meta-row">
+          <div className="meta-row topic-hero-meta">
+            <span>{topic.module.title}</span>
             <span>{topic.level}</span>
           </div>
         </section>
@@ -181,10 +182,10 @@ export default function TopicPage() {
             </article>
           </div>
           <div className="cta-row">
-            <Link to="/revision" className="button-primary">
+            <Link to={`/revision?track=${topic.trackId}`} className="button-primary">
               Open revision pack
             </Link>
-            <Link to="/glossary" className="button-secondary">
+            <Link to={`/glossary?track=${topic.trackId}`} className="button-secondary">
               Review glossary terms
             </Link>
           </div>

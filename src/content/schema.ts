@@ -76,6 +76,14 @@ export type GlossaryTerm = {
   sectionId?: string;
 };
 
+export type StudyTrackId = 'networking' | 'cyber-security';
+
+export type StudyTrack = {
+  id: StudyTrackId;
+  title: string;
+  summary: string;
+};
+
 export type RevisionPack = {
   summary: string;
   memoryFramework: string[];
@@ -87,6 +95,7 @@ export type RevisionPack = {
 export type StudyTopic = {
   slug: string;
   title: string;
+  trackId?: StudyTrackId;
   module: {
     id: string;
     title: string;

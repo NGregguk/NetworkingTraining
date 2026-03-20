@@ -1,40 +1,69 @@
-import { Link } from 'react-router-dom';
-import { glossaryTerms } from '../content';
+import { useMemo } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
+import TrackFilter from '../components/TrackFilter';
+import { getTrackById, glossaryTerms, isTrackId } from '../content';
 
 const alphabet = Array.from({ length: 26 }, (_, index) =>
   String.fromCharCode(65 + index),
 );
-
-const groupedTerms = glossaryTerms.reduce<Record<string, typeof glossaryTerms>>(
-  (accumulator, term) => {
-    const letter = term.term[0].toUpperCase();
-    accumulator[letter] ??= [];
-    accumulator[letter].push(term);
-    return accumulator;
-  },
-  {},
-);
-
-const groupedTermEntries = Object.entries(groupedTerms).sort(([left], [right]) =>
-  left.localeCompare(right),
-);
-
-const availableLetters = new Set(groupedTermEntries.map(([letter]) => letter));
 
 function getGlossaryLetterId(letter: string) {
   return `glossary-letter-${letter}`;
 }
 
 export default function GlossaryPage() {
+  const [searchParams] = useSearchParams();
+  const requestedTrackId = searchParams.get('track');
+  const activeTrackId = isTrackId(requestedTrackId) ? requestedTrackId : undefined;
+  const activeTrack = activeTrackId ? getTrackById(activeTrackId) : undefined;
+
+  const filteredTerms = useMemo(
+    () =>
+      activeTrackId
+        ? glossaryTerms.filter((term) => term.trackId === activeTrackId)
+        : glossaryTerms,
+    [activeTrackId],
+  );
+
+  const groupedTerms = useMemo(
+    () =>
+      filteredTerms.reduce<Record<string, typeof filteredTerms>>((accumulator, term) => {
+        const letter = term.term[0].toUpperCase();
+        accumulator[letter] ??= [];
+        accumulator[letter].push(term);
+        return accumulator;
+      }, {}),
+    [filteredTerms],
+  );
+
+  const groupedTermEntries = useMemo(
+    () =>
+      Object.entries(groupedTerms).sort(([left], [right]) =>
+        left.localeCompare(right),
+      ),
+    [groupedTerms],
+  );
+
+  const availableLetters = useMemo(
+    () => new Set(groupedTermEntries.map(([letter]) => letter)),
+    [groupedTermEntries],
+  );
+
   return (
     <div className="page-content stagger">
       <section className="page-hero card">
         <p className="eyebrow">Glossary</p>
-        <h1>Core networking terminology</h1>
+        <h1>
+          {activeTrack
+            ? `${activeTrack.title} glossary`
+            : 'Definitions across both study tracks'}
+        </h1>
         <p className="lede">
-          Definitions are intentionally compact so they work for review as well as
-          first-pass learning.
+          {activeTrack
+            ? `${activeTrack.summary} This filtered glossary keeps the vocabulary for this route together without pulling in terms from the other track.`
+            : 'Use the glossary as a shared reference across networking and cyber security, or narrow it to one track when you want a cleaner beginner study pass.'}
         </p>
+        <TrackFilter pathname="/glossary" activeTrackId={activeTrackId} />
       </section>
 
       <div className="glossary-layout">
@@ -50,14 +79,20 @@ export default function GlossaryPage() {
                   <h2>{letter}</h2>
                 </div>
               </div>
+
               <div className="term-grid">
                 {terms.map((term) => (
                   <article key={term.id} id={term.id} className="card term-card">
-                    <div className="topic-card-head">
+                    <div className="term-card-head">
                       <h3>{term.term}</h3>
-                      <Link to={term.topicHref} className="text-link">
-                        {term.topicTitle}
-                      </Link>
+                      <div className="term-card-meta">
+                        <span className="badge glossary-track-badge">
+                          {term.trackTitle}
+                        </span>
+                        <Link to={term.topicHref} className="text-link term-source-link">
+                          {term.topicTitle}
+                        </Link>
+                      </div>
                     </div>
                     <p className="card-copy">{term.definition}</p>
                     <p className="term-note">{term.importance}</p>

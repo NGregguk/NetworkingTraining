@@ -1,6 +1,6 @@
 import { useEffect, useId, useState } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
-import { glossaryTerms, topics } from '../content';
+import { glossaryTerms, topics, trackGroups } from '../content';
 import SiteSearch from './SiteSearch';
 
 type Theme = 'light' | 'dark';
@@ -32,6 +32,11 @@ const navigationItems = [
   { label: 'Glossary', to: '/glossary' },
   { label: 'Revision', to: '/revision' },
 ];
+
+const networkingTrack = trackGroups.find((group) => group.track.id === 'networking');
+const cyberSecurityTrack = trackGroups.find(
+  (group) => group.track.id === 'cyber-security',
+);
 
 export default function SiteLayout() {
   const compactScrollThreshold = 88;
@@ -128,7 +133,7 @@ export default function SiteLayout() {
             Network Field Guide
           </NavLink>
           <p className="brand-note">
-            Networking study notes for revision and reference.
+            Networking and cyber security study tracks for revision and reference.
           </p>
         </div>
         <nav
@@ -222,14 +227,20 @@ export default function SiteLayout() {
           <p className="footer-title">At A Glance</p>
           <p className="footer-copy">
             {topics.length} topic pages and {glossaryTerms.length} glossary
-            terms available for study and revision.
+            terms across one shared portal.
           </p>
+          {networkingTrack ? (
+            <p className="footer-copy">
+              {networkingTrack.topics.length} networking topics and{' '}
+              {cyberSecurityTrack?.topics.length ?? 0} cyber security topics.
+            </p>
+          ) : null}
         </div>
         <div>
           <p className="footer-title">Revision Habit</p>
           <p className="footer-copy">
-            Read the full lesson first, review key terms in the glossary, then
-            use revision questions to test recall.
+            Read the full lesson first, then use filtered glossary and revision
+            views to keep each track distinct during recall practice.
           </p>
         </div>
       </footer>

@@ -22,6 +22,8 @@ import type {
   GlossaryTerm,
   SectionInteractive,
   StudyExample,
+  StudyTrack,
+  StudyTrackId,
   StudyTopic,
 } from './schema';
 
@@ -29,13 +31,26 @@ export type IndexedGlossaryTerm = GlossaryTerm & {
   topicSlug: string;
   topicTitle: string;
   topicHref: string;
+  trackId: StudyTrackId;
+  trackTitle: string;
+};
+
+export type PortalTopic = Omit<StudyTopic, 'trackId'> & {
+  trackId: StudyTrackId;
+  track: StudyTrack;
 };
 
 export type ModuleGroup = {
   id: string;
   title: string;
   summary: string;
-  topics: StudyTopic[];
+  topics: PortalTopic[];
+};
+
+export type TrackGroup = {
+  track: StudyTrack;
+  topics: PortalTopic[];
+  modules: ModuleGroup[];
 };
 
 export type SearchResultKind = 'topic' | 'section' | 'glossary';
@@ -50,7 +65,36 @@ export type SearchResult = {
   score: number;
 };
 
-export const topics: StudyTopic[] = [
+export const tracks: StudyTrack[] = [
+  {
+    id: 'networking',
+    title: 'Networking',
+    summary:
+      'Core networking concepts, infrastructure, troubleshooting, and practical network design.',
+  },
+  {
+    id: 'cyber-security',
+    title: 'Cyber Security',
+    summary:
+      'Security-focused lessons covering protection, policy, access control, wireless hardening, and defensive concepts.',
+  },
+];
+
+const trackById: Record<StudyTrackId, StudyTrack> = tracks.reduce(
+  (accumulator, track) => {
+    accumulator[track.id] = track;
+    return accumulator;
+  },
+  {} as Record<StudyTrackId, StudyTrack>,
+);
+
+const topicTrackAssignments: Partial<Record<string, StudyTrackId>> = {
+  'advanced-dns-records': 'cyber-security',
+  'firewall-rules-and-acls': 'cyber-security',
+  'wireless-security': 'cyber-security',
+};
+
+const rawTopics: StudyTopic[] = [
   whyNetworkingIsImportantTopic,
   introToIpAddressingTopic,
   ipv4AddressesTopic,
@@ -73,8 +117,40 @@ export const topics: StudyTopic[] = [
   networkTroubleshootingWorkflowTopic,
 ];
 
-export const getTopicBySlug = (slug: string) =>
-  topics.find((topic) => topic.slug === slug);
+function groupModulesByTopicList(topicList: PortalTopic[]): ModuleGroup[] {
+  return Object.values(
+    topicList.reduce<Record<string, ModuleGroup>>((accumulator, topic) => {
+      const existing = accumulator[topic.module.id];
+
+      if (existing) {
+        existing.topics.push(topic);
+        return accumulator;
+      }
+
+      accumulator[topic.module.id] = {
+        id: topic.module.id,
+        title: topic.module.title,
+        summary: topic.module.summary,
+        topics: [topic],
+      };
+
+      return accumulator;
+    }, {}),
+  );
+}
+
+export const topics: PortalTopic[] = rawTopics.map((topic) => {
+  const trackId =
+    topic.trackId ?? topicTrackAssignments[topic.slug] ?? 'networking';
+
+  return {
+    ...topic,
+    trackId,
+    track: trackById[trackId],
+  };
+});
+
+export const getTopicBySlug = (slug: string) => topics.find((topic) => topic.slug === slug);
 
 export const glossaryTerms: IndexedGlossaryTerm[] = topics
   .flatMap((topic) =>
@@ -88,30 +164,30 @@ export const glossaryTerms: IndexedGlossaryTerm[] = topics
         topicSlug: topic.slug,
         topicTitle: topic.title,
         topicHref,
+        trackId: topic.trackId,
+        trackTitle: topic.track.title,
       };
     }),
   )
   .sort((left, right) => left.term.localeCompare(right.term));
 
-export const modules: ModuleGroup[] = Object.values(
-  topics.reduce<Record<string, ModuleGroup>>((accumulator, topic) => {
-    const existing = accumulator[topic.module.id];
+export const modules: ModuleGroup[] = groupModulesByTopicList(topics);
 
-    if (existing) {
-      existing.topics.push(topic);
-      return accumulator;
-    }
+export const trackGroups: TrackGroup[] = tracks.map((track) => {
+  const trackTopics = topics.filter((topic) => topic.trackId === track.id);
 
-    accumulator[topic.module.id] = {
-      id: topic.module.id,
-      title: topic.module.title,
-      summary: topic.module.summary,
-      topics: [topic],
-    };
+  return {
+    track,
+    topics: trackTopics,
+    modules: groupModulesByTopicList(trackTopics),
+  };
+});
 
-    return accumulator;
-  }, {}),
-);
+export function isTrackId(value: string | null | undefined): value is StudyTrackId {
+  return value === 'networking' || value === 'cyber-security';
+}
+
+export const getTrackById = (trackId: StudyTrackId) => trackById[trackId];
 
 function sanitizeSearchText(value: string) {
   return value.replace(/[*_`>#[\]]/g, ' ').replace(/\s+/g, ' ').trim();
@@ -176,17 +252,21 @@ const searchIndex: SearchIndexDocument[] = topics.flatMap((topic) => {
     id: `topic-${topic.slug}`,
     kind: 'topic',
     title: topic.title,
-    subtitle: `${topic.module.title} topic`,
+    subtitle: `${topic.track.title} / ${topic.module.title} topic`,
     preview: topic.summary,
     href: `/topics/${topic.slug}`,
     normalizedTitle: normalizeSearchText(topic.title),
-    normalizedSubtitle: normalizeSearchText(`${topic.module.title} ${topic.level}`),
+    normalizedSubtitle: normalizeSearchText(
+      `${topic.track.title} ${topic.module.title} ${topic.level}`,
+    ),
     normalizedPreview: normalizeSearchText(topic.summary),
     normalizedText: normalizeSearchText(
       [
         topic.title,
         topic.summary,
         topic.heroNote,
+        topic.track.title,
+        topic.track.summary,
         topic.module.title,
         topic.module.summary,
         topic.level,
@@ -202,12 +282,12 @@ const searchIndex: SearchIndexDocument[] = topics.flatMap((topic) => {
     id: `section-${topic.slug}-${section.id}`,
     kind: 'section' as const,
     title: section.title,
-    subtitle: `${topic.title} section`,
+    subtitle: `${topic.track.title} / ${topic.title} section`,
     preview: section.overview,
     href: `/topics/${topic.slug}#${section.id}`,
     normalizedTitle: normalizeSearchText(section.title),
     normalizedSubtitle: normalizeSearchText(
-      `${topic.title} ${topic.module.title} ${section.strapline}`,
+      `${topic.track.title} ${topic.title} ${topic.module.title} ${section.strapline}`,
     ),
     normalizedPreview: normalizeSearchText(section.overview),
     normalizedText: normalizeSearchText(
@@ -230,6 +310,7 @@ const searchIndex: SearchIndexDocument[] = topics.flatMap((topic) => {
           connection.note,
         ]) ?? []),
         flattenInteractiveText(section.interactive),
+        topic.track.title,
         topic.title,
         topic.module.title,
       ].join(' '),
@@ -241,19 +322,20 @@ const searchIndex: SearchIndexDocument[] = topics.flatMap((topic) => {
     const linkedSectionTitle = term.sectionId
       ? topic.sections.find((section) => section.id === term.sectionId)?.title
       : undefined;
+    const glossarySubtitle = `Glossary / ${topic.track.title} / ${topic.title}`;
 
     return {
       id: `glossary-${topic.slug}-${term.id}`,
       kind: 'glossary' as const,
       title: term.term,
-      subtitle: `Glossary · ${topic.title}`,
+      subtitle: glossarySubtitle,
       preview: term.definition,
       href: term.sectionId
         ? `/topics/${topic.slug}#${term.sectionId}`
         : `/topics/${topic.slug}`,
       normalizedTitle: normalizeSearchText(term.term),
       normalizedSubtitle: normalizeSearchText(
-        `glossary ${topic.title} ${linkedSectionTitle ?? ''}`,
+        `glossary ${topic.track.title} ${topic.title} ${linkedSectionTitle ?? ''}`,
       ),
       normalizedPreview: normalizeSearchText(term.definition),
       normalizedText: normalizeSearchText(
@@ -261,6 +343,7 @@ const searchIndex: SearchIndexDocument[] = topics.flatMap((topic) => {
           term.term,
           term.definition,
           term.importance,
+          topic.track.title,
           topic.title,
           topic.module.title,
           linkedSectionTitle,

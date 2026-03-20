@@ -4,12 +4,16 @@ import type { StudyTopic } from '../content/schema';
 type TopicCardProps = {
   topic: StudyTopic;
   showModule?: boolean;
+  titleTag?: 'h3' | 'h4';
 };
 
 export default function TopicCard({
   topic,
   showModule = true,
+  titleTag = 'h3',
 }: TopicCardProps) {
+  const TitleTag = titleTag;
+
   return (
     <article
       className={
@@ -22,7 +26,7 @@ export default function TopicCard({
         ) : null}
         <span className="badge">{topic.level}</span>
       </div>
-      <h3 className="topic-card-title">{topic.title}</h3>
+      <TitleTag className="topic-card-title">{topic.title}</TitleTag>
       <div className="meta-row topic-card-meta">
         <span>{topic.sections.length} sections</span>
       </div>

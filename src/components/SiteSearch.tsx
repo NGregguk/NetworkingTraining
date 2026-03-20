@@ -8,7 +8,7 @@ import {
 } from 'react';
 import { createPortal } from 'react-dom';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { searchSite, topics, type SearchResult } from '../content';
+import { searchSite, trackGroups, type SearchResult } from '../content';
 
 type SearchItemKind = SearchResult['kind'] | 'page';
 
@@ -74,15 +74,23 @@ export default function SiteSearch({ onOpen }: SiteSearchProps) {
         kind: 'page',
         title: 'Browse all topics',
         subtitle: 'Page',
-        preview: 'Open the full topic library and move through the modules in order.',
+        preview: 'Open both study tracks and move through each module in order.',
         href: '/topics',
       },
+      ...trackGroups.map((group) => ({
+        id: `quick-track-${group.track.id}`,
+        kind: 'page' as const,
+        title: `${group.track.title} track`,
+        subtitle: 'Track page',
+        preview: group.track.summary,
+        href: `/topics?track=${group.track.id}`,
+      })),
       {
         id: 'quick-glossary-page',
         kind: 'page',
         title: 'Open glossary',
         subtitle: 'Page',
-        preview: 'Review compact definitions while you study.',
+        preview: 'Review compact definitions across networking and cyber security.',
         href: '/glossary',
       },
       {
@@ -93,14 +101,16 @@ export default function SiteSearch({ onOpen }: SiteSearchProps) {
         preview: 'Jump into condensed recall notes and self-check questions.',
         href: '/revision',
       },
-      ...topics.slice(0, 4).map((topic) => ({
-        id: `quick-topic-${topic.slug}`,
-        kind: 'topic' as const,
-        title: topic.title,
-        subtitle: `${topic.module.title} topic`,
-        preview: topic.summary,
-        href: `/topics/${topic.slug}`,
-      })),
+      ...trackGroups.flatMap((group) =>
+        group.topics.slice(0, 2).map((topic) => ({
+          id: `quick-topic-${topic.slug}`,
+          kind: 'topic' as const,
+          title: topic.title,
+          subtitle: `${topic.track.title} / ${topic.module.title} topic`,
+          preview: topic.summary,
+          href: `/topics/${topic.slug}`,
+        })),
+      ),
     ],
     [],
   );
@@ -258,7 +268,7 @@ export default function SiteSearch({ onOpen }: SiteSearchProps) {
                   <div>
                     <p className="eyebrow">Global Search</p>
                     <h2 id={dialogTitleId}>
-                      Find topics, sections, and glossary terms
+                      Find topics, sections, and glossary terms across both tracks
                     </h2>
                   </div>
                   <button
@@ -281,7 +291,7 @@ export default function SiteSearch({ onOpen }: SiteSearchProps) {
                     className="search-input"
                     type="text"
                     value={query}
-                    placeholder="Search IPv4, DNS, subnet masks, glossary terms..."
+                    placeholder="Search IPv4, DNS, wireless security, glossary terms..."
                     spellCheck={false}
                     onChange={(event) => setQuery(event.target.value)}
                     onKeyDown={(event) => {
@@ -389,7 +399,7 @@ export default function SiteSearch({ onOpen }: SiteSearchProps) {
                       <p className="search-empty-title">No matching results</p>
                       <p className="search-empty-copy">
                         Try a topic name, protocol, glossary term, or a phrase such
-                        as subnet mask, DHCP lease, or IPv6 notation.
+                        as subnet mask, DHCP lease, ACL rule, or wireless security.
                       </p>
                     </div>
                   )}
@@ -403,7 +413,7 @@ export default function SiteSearch({ onOpen }: SiteSearchProps) {
                   </div>
                   <p className="search-footer-copy">
                     Search covers topic pages, section headings, and glossary
-                    entries.
+                    entries across networking and cyber security.
                   </p>
                 </div>
               </div>
